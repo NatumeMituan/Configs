@@ -1,0 +1,15 @@
+--style=google
+--indent-col1-comments
+--min-conditional-indent=0
+--max-continuation-indent=120
+--pad-oper
+--pad-comma
+--pad-header
+--unpad-paren
+--align-pointer=name
+--align-reference=name
+--break-closing-braces
+--break-one-line-headers
+--add-braces
+--convert-tabs
+--close-templates
