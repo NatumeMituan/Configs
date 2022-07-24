@@ -1,9 +1,14 @@
 .card {
-    font-family: 'Source Han Serif SC', serif;
+    font-family: 'myfont', serif;
     font-size: 20px;
     color: black;
     background-color: white;
     text-align: center;
+}
+
+@font-face {
+    font-family: myfont;
+    src: url("_SourceHanSerifSC-Regular.otf");
 }
 
 :lang(en) {
