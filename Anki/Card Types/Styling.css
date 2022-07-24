@@ -1,0 +1,44 @@
+.card {
+    font-family: 'Source Han Serif SC', serif;
+    font-size: 20px;
+    color: black;
+    background-color: white;
+    text-align: center;
+}
+
+:lang(en) {
+    font-family: 'Arial', sans-serif;
+}
+
+.big {
+    font-size: 24px;
+}
+
+.orange {
+    color: orange;
+}
+
+.blue {
+    color: cornflowerblue;
+}
+
+.green {
+    color: green;
+}
+
+.tsource {
+    position: relative;
+    font-size: 0.8em;
+}
+
+.tsource img {
+    height: 1.0em;
+}
+
+.tsource a {
+    text-decoration: none;
+}
+
+/* tts {
+    display: none
+} */
