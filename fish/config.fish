@@ -1,5 +1,11 @@
 setenv all_proxy http://127.0.0.1:7890
 
+setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
+setenv FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+setenv FZF_ALT_C_COMMAND $FZF_DEFAULT_COMMAND
+
+setenv FZF_DEFAULT_OPTS '--height 8% --layout=reverse --border'
+
 fish_vi_key_bindings
 
 abbr -a c clear

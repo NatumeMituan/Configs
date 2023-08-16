@@ -119,3 +119,5 @@ export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_pr
 
 # https://github.com/wting/autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
