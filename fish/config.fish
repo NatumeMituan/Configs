@@ -18,6 +18,7 @@ abbr -a c clear
 abbr -a e nvim
 abbr -a g git
 abbr -a gst 'git status'
+abbr -a glo 'git log --oneline --decorate'
 
 # https://github.com/ogham/exa
 if type -p exa > /dev/null
