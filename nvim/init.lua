@@ -259,6 +259,17 @@ vim.o.termguicolors = true
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
+
+-- Move line up/down and reindent the line
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
+
+-- Scroll up/down half screen and center the line
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up' })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down' })
+
+vim.keymap.set('n', '<leader>k', require('telescope.builtin').keymaps, { desc = '[K]eymaps' })
+
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
