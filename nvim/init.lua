@@ -268,6 +268,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up' })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down' })
 
 vim.keymap.set('n', '<leader>k', require('telescope.builtin').keymaps, { desc = '[K]eymaps' })
+vim.keymap.set('n', '<leader>r', require('telescope.builtin').resume, { desc = '[R]esume telescope' })
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
