@@ -325,6 +325,11 @@ require("catppuccin").setup({
     gitsigns = true,
     nvimtree = true,
     treesitter = true,
+    which_key = true,
+    telescope = {
+      enabled = true,
+      style = "nvchad"
+    },
     notify = false,
     mini = false,
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
