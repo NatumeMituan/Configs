@@ -15,13 +15,20 @@ setenv FZF_DEFAULT_OPTS '
 
 fish_vi_key_bindings
 
-abbr -a c clear
-abbr -a e nvim
 abbr -a g git
-abbr -a gst 'git status'
-abbr -a glo 'git log --oneline --decorate'
+abbr -a ga 'git add'
+abbr -a gc 'git commit'
+abbr -a gca 'git commit -a'
 abbr -a gd 'git diff'
+abbr -a gdc 'git diff --cached'
 abbr -a gdd 'git difftool'
+abbr -a gddc 'git difftool --cached'
+abbr -a glo 'git log --oneline --decorate'
+abbr -a gp 'git push'
+abbr -a gr 'git restore'
+abbr -a gst 'git status'
+
+abbr -a e nvim
 abbr -a nd 'nvim -d'
 
 # https://github.com/ogham/exa
