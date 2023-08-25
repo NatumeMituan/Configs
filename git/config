@@ -1,0 +1,7 @@
+[user]
+	email = NatumeMituan@gmail.com
+	name = NatumeMituan
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
