@@ -263,6 +263,11 @@ vim.o.termguicolors = true
 -- See `:help vim.keymap.set()`
 
 -- Move line up/down and reindent the line
+vim.keymap.set({ "n", "v" }, "<Left>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<Right>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<Up>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<Down>", "<Nop>")
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
 
