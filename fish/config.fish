@@ -2,7 +2,7 @@ setenv VISUAL nvim
 setenv EDITOR nvim
 setenv ALL_PROXY http://127.0.0.1:7890
 
-setenv FZF_DEFAULT_COMMAND 'fd --type file --follow'
+setenv FZF_DEFAULT_COMMAND 'fd --follow'
 setenv FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND --search-path \$dir"
 setenv FZF_ALT_C_COMMAND $FZF_CTRL_T_COMMAND
 
