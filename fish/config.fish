@@ -31,6 +31,9 @@ abbr -a gst 'git status'
 abbr -a e nvim
 abbr -a nd 'nvim -d'
 
+# Current date in UTC and ISO 8601 format
+abbr -a now 'date -u +%Y-%m-%dT%H:%M:%SZ'
+
 # https://github.com/ogham/exa
 if type -p exa > /dev/null
     abbr -a l 'exa'
