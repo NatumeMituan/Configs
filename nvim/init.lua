@@ -230,6 +230,10 @@ require('lazy').setup({
 -- Minimal number of screen lines to keep above and below the cursor
 vim.o.scrolloff = 5
 
+-- Spell check
+vim.o.spell = true
+vim.o.spelllang = 'en,cjk'
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
