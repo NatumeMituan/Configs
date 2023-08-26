@@ -227,6 +227,9 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Minimal number of screen lines to keep above and below the cursor
+vim.o.scrolloff = 5
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
