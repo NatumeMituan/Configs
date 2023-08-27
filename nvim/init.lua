@@ -234,6 +234,12 @@ vim.o.scrolloff = 5
 vim.o.spell = true
 vim.o.spelllang = 'en,cjk'
 
+-- Tab and indent
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
