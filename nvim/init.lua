@@ -240,6 +240,9 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
 
+-- Cursor line
+vim.o.cursorline = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -350,7 +353,12 @@ require("catppuccin").setup({
     operators = {},
   },
   color_overrides = {},
-  custom_highlights = {},
+  custom_highlights = function(cp)
+    return {
+      LineNr = { fg = cp.text, bg = cp.surface0 },
+      CursorLineNr = { fg = cp.peach },
+    }
+  end,
   integrations = {
     cmp = true,
     gitsigns = true,
