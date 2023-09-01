@@ -1,5 +1,7 @@
 setenv VISUAL nvim
 setenv EDITOR nvim
+setenv HTTP_PROXY http://127.0.0.1:7890
+setenv HTTPS_PROXY http://127.0.0.1:7890
 setenv ALL_PROXY http://127.0.0.1:7890
 
 setenv FZF_DEFAULT_COMMAND 'fd --follow'
@@ -18,7 +20,7 @@ fish_vi_key_bindings
 abbr -a g git
 abbr -a ga 'git add'
 abbr -a gc 'git commit'
-abbr -a gca 'git commit -a'
+abbr -a gca 'git add -A && git commit -a'
 abbr -a gd 'git diff'
 abbr -a gdc 'git diff --cached'
 abbr -a gdd 'git difftool'
@@ -26,7 +28,7 @@ abbr -a gddc 'git difftool --cached'
 abbr -a glo 'git log --oneline --decorate'
 abbr -a gp 'git push'
 abbr -a gr 'git restore'
-abbr -a gst 'git status'
+abbr -a gs 'git status'
 
 abbr -a e nvim
 abbr -a nd 'nvim -d'
