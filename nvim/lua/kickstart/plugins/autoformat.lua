@@ -66,6 +66,11 @@ return {
                 return c.id == client.id
               end,
             }
+
+            -- Re-enable diagnostics, following this:
+            -- https://www.reddit.com/r/neovim/comments/15dfx4g/help_lsp_diagnostics_are_not_being_displayed
+            vim.diagnostic.enable(bufnr)
+
           end,
         })
       end,
