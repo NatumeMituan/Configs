@@ -1,12 +1,24 @@
+# homebrew
+setenv HOMEBREW_PREFIX "/opt/homebrew";
+setenv HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+setenv HOMEBREW_REPOSITORY "/opt/homebrew";
+fish_add_path "/opt/homebrew/bin" "/opt/homebrew/sbin"
+set -q MANPATH; or set MANPATH ''; setenv MANPATH "/opt/homebrew/share/man $MANPATH";
+set -q INFOPATH; or set INFOPATH ''; setenv INFOPATH "/opt/homebrew/share/info $INFOPATH";
+
+# cargo
+fish_add_path "$HOME/.cargo/bin"
+
+# fzf
+setenv FZF_DEFAULT_COMMAND 'fd --follow'
+setenv FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND --search-path \$dir"
+setenv FZF_ALT_C_COMMAND $FZF_CTRL_T_COMMAND
+
 setenv VISUAL nvim
 setenv EDITOR nvim
 setenv HTTP_PROXY http://127.0.0.1:7890
 setenv HTTPS_PROXY http://127.0.0.1:7890
 setenv ALL_PROXY http://127.0.0.1:7890
-
-setenv FZF_DEFAULT_COMMAND 'fd --follow'
-setenv FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND --search-path \$dir"
-setenv FZF_ALT_C_COMMAND $FZF_CTRL_T_COMMAND
 
 # https://github.com/catppuccin/fzf
 setenv FZF_DEFAULT_OPTS '
