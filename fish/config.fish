@@ -1,31 +1,41 @@
-# homebrew
-setenv HOMEBREW_PREFIX "/opt/homebrew";
-setenv HOMEBREW_CELLAR "/opt/homebrew/Cellar";
-setenv HOMEBREW_REPOSITORY "/opt/homebrew";
-fish_add_path "/opt/homebrew/bin" "/opt/homebrew/sbin"
-set -q MANPATH; or set MANPATH ''; setenv MANPATH "/opt/homebrew/share/man $MANPATH";
-set -q INFOPATH; or set INFOPATH ''; setenv INFOPATH "/opt/homebrew/share/info $INFOPATH";
-
-# cargo
-fish_add_path "$HOME/.cargo/bin"
-
-# fzf
-setenv FZF_DEFAULT_COMMAND 'fd --follow'
-setenv FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND --search-path \$dir"
-setenv FZF_ALT_C_COMMAND $FZF_CTRL_T_COMMAND
-
-setenv VISUAL nvim
-setenv EDITOR nvim
 setenv HTTP_PROXY http://127.0.0.1:7890
 setenv HTTPS_PROXY http://127.0.0.1:7890
 setenv ALL_PROXY http://127.0.0.1:7890
 
-# https://github.com/catppuccin/fzf
-setenv FZF_DEFAULT_OPTS '
+# homebrew: https://github.com/Homebrew/brew
+if [ -f /opt/homebrew/bin/brew ]
+    setenv HOMEBREW_PREFIX "/opt/homebrew";
+    setenv HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+    setenv HOMEBREW_REPOSITORY "/opt/homebrew";
+    fish_add_path "/opt/homebrew/bin" "/opt/homebrew/sbin"
+    set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
+    set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+end
+
+# cargo: https://github.com/rust-lang/cargo
+if [ -f $HOME/.cargo/bin/cargo ]
+    fish_add_path "$HOME/.cargo/bin"
+end
+
+# fzf: https://github.com/junegunn/fzf
+if type -p fzf > /dev/null
+    setenv FZF_DEFAULT_COMMAND 'fd --follow'
+    setenv FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND --search-path \$dir"
+    setenv FZF_ALT_C_COMMAND $FZF_CTRL_T_COMMAND
+
+    #catppuccin: https://github.com/catppuccin/fzf
+    setenv FZF_DEFAULT_OPTS '
     --height 80% --layout=reverse --border
     --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
     --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
     --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796'
+end
+
+# nvim: https://github.com/neovim/neovim
+if type -p nvim > /dev/null
+    setenv VISUAL nvim
+    setenv EDITOR nvim
+end
 
 fish_vi_key_bindings
 
@@ -48,18 +58,18 @@ abbr -a nd 'nvim -d'
 # Current date in UTC and ISO 8601 format
 abbr -a now 'date -u +%Y-%m-%dT%H:%M:%SZ'
 
-# https://github.com/ogham/exa
+# exa: https://github.com/ogham/exa
 if type -p exa > /dev/null
     abbr -a l 'exa'
-	abbr -a ls 'exa'
-	abbr -a ll 'exa -l'
-	abbr -a la 'exa -la'
-	abbr -a li 'exa --icons'
+    abbr -a ls 'exa'
+    abbr -a ll 'exa -l'
+    abbr -a la 'exa -la'
+    abbr -a li 'exa --icons'
     abbr -a lt 'exa --tree'
 else
-	abbr -a l 'ls'
-	abbr -a ll 'ls -l'
-	abbr -a la 'ls -la'
+    abbr -a l 'ls'
+    abbr -a ll 'ls -l'
+    abbr -a la 'ls -la'
 end
 
 
