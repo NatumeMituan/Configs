@@ -2,6 +2,9 @@ setenv HTTP_PROXY http://127.0.0.1:7890
 setenv HTTPS_PROXY http://127.0.0.1:7890
 setenv ALL_PROXY http://127.0.0.1:7890
 
+# less
+setenv LESS '-sRi -Dd+b$Du+y$ --incsearch --use-color'
+
 # homebrew: https://github.com/Homebrew/brew
 if [ -f /opt/homebrew/bin/brew ]
     setenv HOMEBREW_PREFIX "/opt/homebrew";
