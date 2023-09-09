@@ -45,6 +45,8 @@ abbr -a gc 'git commit'
 abbr -a gca 'git add -A && git commit -a'
 abbr -a gd 'git diff'
 abbr -a gdc 'git diff --cached'
+abbr -a gdw 'git diff --word-diff'
+abbr -a gdwc 'git diff --word-diff --cached'
 abbr -a gdd 'git difftool'
 abbr -a gddc 'git difftool --cached'
 abbr -a glo 'git log --oneline --decorate'
@@ -58,14 +60,14 @@ abbr -a nd 'nvim -d'
 # Current date in UTC and ISO 8601 format
 abbr -a now 'date -u +%Y-%m-%dT%H:%M:%SZ'
 
-# exa: https://github.com/ogham/exa
-if type -p exa > /dev/null
-    abbr -a l 'exa'
-    abbr -a ls 'exa'
-    abbr -a ll 'exa -l'
-    abbr -a la 'exa -la'
-    abbr -a li 'exa --icons'
-    abbr -a lt 'exa --tree'
+# eza: https://github.com/eza-community/eza
+if type -p eza > /dev/null
+    abbr -a l 'eza'
+    abbr -a ls 'eza'
+    abbr -a ll 'eza -l'
+    abbr -a la 'eza -la'
+    abbr -a li 'eza --icons'
+    abbr -a lt 'eza --tree'
 else
     abbr -a l 'ls'
     abbr -a ll 'ls -l'
