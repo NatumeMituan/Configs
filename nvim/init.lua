@@ -215,6 +215,13 @@ require('lazy').setup({
     opts = {},
   },
 
+  {
+    -- https://github.com/windwp/nvim-autopairs
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {},
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -592,8 +599,14 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 cmp.setup {
   snippet = {
