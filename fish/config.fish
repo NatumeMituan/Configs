@@ -1,9 +1,13 @@
-setenv HTTP_PROXY http://127.0.0.1:7890
-setenv HTTPS_PROXY http://127.0.0.1:7890
-setenv ALL_PROXY http://127.0.0.1:7890
+# enable true-color to fix the issue that
+# tide shows wrong colors when ssh / in wsl
+
+# to check: python3 -m rich
+setenv COLORTERM truecolor
+# see: set_color --help
+setenv fish_term24bit 1
 
 # less
-setenv LESS '-sRi -Dd+b$Du+y$ --incsearch --use-color'
+setenv LESS '-sRiM -Dd+b$Du+y$ --incsearch --use-color'
 
 # homebrew: https://github.com/Homebrew/brew
 if [ -f /opt/homebrew/bin/brew ]
