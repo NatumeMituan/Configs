@@ -1,7 +1,7 @@
 #!usr/bin/env bash
 
 
-PROGRAMS=(bat fish git nvim tmux gh)
+PROGRAMS=(bat fish git nvim tmux gh alacritty)
 
 for program in ${PROGRAMS[@]}; do
     ln -sf "$(pwd)/$program" "$HOME/.config"
