@@ -1,11 +1,4 @@
-# enable true-color to fix the issue that
-# tide shows wrong colors when ssh / in wsl
-
-# to check: python3 -m rich
-
-# this will be set by iTerm2 and Gnome Terminal
-# automatically
-setenv COLORTERM truecolor
+# address the issue that fish sets wrong colors in ssh/wsl
 # see: set_color --help
 setenv fish_term24bit 1
 
