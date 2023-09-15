@@ -45,6 +45,7 @@ fish_vi_key_bindings
 abbr -a g git
 abbr -a ga 'git add'
 abbr -a gc 'git commit'
+abbr -a gcl 'git clean -di'
 abbr -a gca 'git add -A && git commit -a'
 abbr -a gd 'git diff'
 abbr -a gdc 'git diff --cached'
