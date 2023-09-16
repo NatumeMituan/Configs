@@ -78,9 +78,8 @@ else
     abbr -a la 'ls -la'
 end
 
-
-# https://github.com/wting/autojump
-[ -f /opt/homebrew/share/autojump/autojump.fish ]; and source /opt/homebrew/share/autojump/autojump.fish
+# https://github.com/ajeetdsouza/zoxide
+type -p zoxide; and zoxide init fish | source
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
