@@ -5,6 +5,8 @@ setenv fish_term24bit 1
 # less
 setenv LESS '-sRiM -Dd+b$Du+y$ --incsearch --use-color'
 
+fish_add_path "$HOME/.local/bin"
+
 # homebrew: https://github.com/Homebrew/brew
 if [ -f /opt/homebrew/bin/brew ]
     setenv HOMEBREW_PREFIX "/opt/homebrew";
