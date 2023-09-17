@@ -224,6 +224,13 @@ require('lazy').setup({
     event = "InsertEnter",
     opts = {},
   },
+  {
+    -- https://github.com/kevinhwang91/nvim-ufo
+    'kevinhwang91/nvim-ufo',
+    dependencies = {
+      'kevinhwang91/promise-async',
+    },
+  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -263,6 +270,8 @@ vim.o.cursorline = true
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
+
+
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -599,6 +608,20 @@ cmp.setup {
     { name = 'buffer' },
   },
 }
+
+-- [[ Configure nvim-ufo ]]
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zr', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
+
+require('ufo').setup({
+  provider_selector = function(bufnr, filetype, buftype)
+    return { 'treesitter', 'indent' }
+  end
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
