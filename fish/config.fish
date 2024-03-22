@@ -24,10 +24,6 @@ end
 
 # fzf: https://github.com/junegunn/fzf
 if type -p fzf > /dev/null
-    setenv FZF_DEFAULT_COMMAND 'fd --follow'
-    setenv FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND --search-path \$dir"
-    setenv FZF_ALT_C_COMMAND $FZF_CTRL_T_COMMAND
-
     #catppuccin: https://github.com/catppuccin/fzf
     setenv FZF_DEFAULT_OPTS '
     --height 80% --layout=reverse --border
