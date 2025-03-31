@@ -3,15 +3,30 @@
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # PowerShell
-function Unfold-Alias {
-    param([string]$alias)
-    (Get-Command $alias).Definition
+# https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/using-aliases
+Set-Alias which Get-Command
+Set-Alias touch New-Item
+
+function take{
+    mkdir -f $args[0] && cd $args[0]
 }
+
+function rmrf {
+    Remove-Item -Recurse -Force $args
+}
+
+function grep($pattern) {
+    $input | Out-String -Stream | Select-String $pattern
+}
+
+function Unfold-Alias {
+    (Get-Command $args).Definition
+}
+
 Set-Alias uf Unfold-Alias
 
 function Unfold-Alias2 {
-    param([string]$alias)
-    (Get-Command (Get-Command $alias).Definition).Definition
+    (Get-Command (Get-Command $args).Definition).Definition
 }
 Set-Alias uf2 Unfold-Alias2
 
@@ -63,6 +78,11 @@ function git-commit {
     git commit $args
 }
 Set-Alias gct git-commit
+
+function git-add-commit {
+    git add -A; git commit $args
+}
+Set-Alias gca git-add-commit
 
 function git-push {
     git push $args
