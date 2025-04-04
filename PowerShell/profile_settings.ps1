@@ -1,6 +1,7 @@
 # PSReadLine
 # https://github.com/PowerShell/PowerShell
 Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 # oh-my-posh
 # https://github.com/jandedobbeleer/oh-my-posh
