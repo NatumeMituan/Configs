@@ -29,8 +29,6 @@ abbr gpl 'git pull'
 abbr gd 'git diff'
 
 # eza
-# https://github.com/eza-community/eza
-# scoop install main/eza
 abbr l   'eza --group-directories-last'
 abbr ll  'eza --group-directories-last --long'
 abbr la  'eza --group-directories-last --long --all'
@@ -40,6 +38,4 @@ abbr lt  'eza --group-directories-last --tree'
 abbr lat 'eza --group-directories-last --all --tree'
 
 # gsudo
-# https://github.com/gerardog/gsudo
-# scoop install main/gsudo
 abbr sudo 'gsudo --loadProfile'
