@@ -1,11 +1,45 @@
-# https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/using-aliases
+# https://github.com/g0t4/pwsh-abbr
 
 # PowerShell
-Set-Alias which Get-Command
-Set-Alias new New-Item
+abbr which 'Get-Command'
+abbr new 'New-Item'
+abbr touch 'New-Item'
+abbr rm-rf 'Remove-Item -Recurse -Force'
+
+# function
+abbr tk 'take'
 
 # Editor
-Set-Alias -Name e code
+abbr e 'code'
 
-# Scoop
-Set-Alias -Name scp scoop
+# scoop
+abbr scp 'scoop'
+
+# git
+abbr gs 'git status' 
+abbr glg 'git log'
+abbr glo 'git log --oneline --decorate=no'
+abbr gsw 'git switch'
+abbr gb 'git branch'
+abbr ga 'git add'
+abbr gco 'git commit'
+abbr gca 'git add -A; git commit'
+abbr gph 'git push'
+abbr gpl 'git pull'
+abbr gd 'git diff'
+
+# eza
+# https://github.com/eza-community/eza
+# scoop install main/eza
+abbr l   'eza --group-directories-last'
+abbr ll  'eza --group-directories-last --long'
+abbr la  'eza --group-directories-last --long --all'
+abbr li  'eza --group-directories-last --icons'
+abbr lai 'eza --group-directories-last --long --all --icons'
+abbr lt  'eza --group-directories-last --tree'
+abbr lat 'eza --group-directories-last --all --tree'
+
+# gsudo
+# https://github.com/gerardog/gsudo
+# scoop install main/gsudo
+abbr sudo 'gsudo --loadProfile'

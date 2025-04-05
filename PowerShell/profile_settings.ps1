@@ -1,5 +1,5 @@
 # PSReadLine
-# https://github.com/PowerShell/PowerShell
+# https://github.com/PowerShell/PSReadLine
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
@@ -12,9 +12,3 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.j
 # https://github.com/ajeetdsouza/zoxide
 # scoop install main/zoxide
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
-
-# CompletionPredictor
-# https://github.com/PowerShell/CompletionPredictor
-# https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/using-predictors
-# Install-Module -Name CompletionPredictor -Repository PSGallery
-Import-Module CompletionPredictor
