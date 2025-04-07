@@ -16,6 +16,7 @@ abbr e 'code'
 abbr scp 'scoop'
 
 # git
+abbr g 'git'
 abbr gs 'git status' 
 abbr glg 'git log'
 abbr glo 'git log --oneline --decorate=no'
