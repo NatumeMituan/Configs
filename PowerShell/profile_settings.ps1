@@ -3,6 +3,7 @@
 # https://learn.microsoft.com/en-us/powershell/module/psreadline/about/about_psreadline
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineKeyHandler -Key Ctrl+d -Function ViExit
 
 # https://github.com/kelleyma49/PSFzf?tab=readme-ov-file#psreadline-integration
 # Get-PSReadLineKeyHandler | grep "fzf"
