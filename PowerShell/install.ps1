@@ -32,11 +32,22 @@ $tools = @{
     # https://www.powershellgallery.com/packages/Abbr
     "abbr" = { Install-Module -Name Abbr }
 
+    # https://www.autohotkey.com/
+    # https://github.com/AutoHotkey/AutoHotkey
+    "autohotkey" = { scoop install main/autohotkey }
+
     # https://github.com/eza-community/eza
     "eza" = { scoop install main/eza }
 
+    # https://junegunn.github.io/fzf/
+    # https://github.com/junegunn/fzf
+    "fzf" = { scoop install main/fzf }
+
     # https://github.com/gerardog/gsudo
     "gsudo" = { scoop install main/gsudo }
+
+    # https://github.com/kelleyma49/PSFzf
+    "Invoke-Fzf" = { scoop install extras/psfzf }
 
     # https://github.com/jandedobbeleer/oh-my-posh
     # Only winget and the Windows Store add the environment variable POSH_THEMES_PATH automatically
