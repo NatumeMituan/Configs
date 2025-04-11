@@ -53,9 +53,17 @@ $tools = @{
     # Only winget and the Windows Store add the environment variable POSH_THEMES_PATH automatically
     "oh-my-posh" = { winget install JanDeDobbeleer.OhMyPosh -s winget }
 
+    # https://yazi-rs.github.io/
+    # https://github.com/sxyazi/yazi
+    "yazi" = { scoop install main/yazi }
+
     # https://github.com/ajeetdsouza/zoxide
     "zoxide" = { scoop install main/zoxide }
 }
 
 Install-Tools -tools $prerequisites
 Install-Tools -tools $tools
+
+# yazi
+# https://yazi-rs.github.io/docs/installation/#windows
+[Environment]::SetEnvironmentVariable('YAZI_FILE_ONE', "$Env:GIT_INSTALL_ROOT\usr\bin\file.exe", 'User')
