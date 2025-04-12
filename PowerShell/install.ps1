@@ -59,9 +59,7 @@ $tools = @{
     # https://github.com/BurntSushi/ripgrep
     "rg" = { scoop install main/ripgrep }
 
-    # https://yazi-rs.github.io/
-    # https://github.com/sxyazi/yazi
-    "yazi" = { scoop install main/yazi }
+    "yazi" = { .\install_yazi.ps1 }
 
     # https://github.com/ajeetdsouza/zoxide
     "zoxide" = { scoop install main/zoxide }
@@ -69,7 +67,3 @@ $tools = @{
 
 Install-Tools -tools $prerequisites
 Install-Tools -tools $tools
-
-# yazi
-# https://yazi-rs.github.io/docs/installation/#windows
-[Environment]::SetEnvironmentVariable('YAZI_FILE_ONE', "$Env:GIT_INSTALL_ROOT\usr\bin\file.exe", 'User')
