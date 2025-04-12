@@ -39,6 +39,9 @@ $tools = @{
     # https://github.com/eza-community/eza
     "eza" = { scoop install main/eza }
 
+    # https://github.com/sharkdp/fd
+    "fd" = { scoop install main/fd }
+
     # https://junegunn.github.io/fzf/
     # https://github.com/junegunn/fzf
     "fzf" = { scoop install main/fzf }
@@ -52,6 +55,9 @@ $tools = @{
     # https://github.com/jandedobbeleer/oh-my-posh
     # Only winget and the Windows Store add the environment variable POSH_THEMES_PATH automatically
     "oh-my-posh" = { winget install JanDeDobbeleer.OhMyPosh -s winget }
+
+    # https://github.com/BurntSushi/ripgrep
+    "rg" = { scoop install main/ripgrep }
 
     # https://yazi-rs.github.io/
     # https://github.com/sxyazi/yazi
