@@ -59,6 +59,9 @@ $tools = @{
     # https://github.com/BurntSushi/ripgrep
     "rg" = { scoop install main/ripgrep }
 
+    # https://github.com/tldr-pages/tlrc
+    "tldr" = { scoop install main/tlrc }
+
     "yazi" = { .\install_yazi.ps1 }
 
     # https://github.com/ajeetdsouza/zoxide
