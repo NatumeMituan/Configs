@@ -62,7 +62,7 @@ $tools = @{
     # https://github.com/tldr-pages/tlrc
     "tldr" = { scoop install main/tlrc }
 
-    "yazi" = { .\install_yazi.ps1 }
+    "yazi" = { . (Join-Path $PSScriptRoot "install_yazi.ps1") }
 
     # https://github.com/ajeetdsouza/zoxide
     "zoxide" = { scoop install main/zoxide }

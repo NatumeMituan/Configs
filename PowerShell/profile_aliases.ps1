@@ -10,7 +10,7 @@ abbr rm-rf 'Remove-Item -Recurse -Force'
 abbr tk 'take'
 
 # Editor
-abbr e 'code'
+abbr e 'nvim'
 
 # scoop
 abbr scp 'scoop'
