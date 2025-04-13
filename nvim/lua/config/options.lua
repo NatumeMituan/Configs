@@ -1,0 +1,36 @@
+-- See `:help vim.o`
+
+-- Relative line number
+vim.o.number = true
+vim.o.relativenumber = true
+
+-- Minimal number of screen lines to keep above and below the cursor
+vim.o.scrolloff = 5
+
+-- Tab and indent
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
+
+-- Show whitespaces
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+vim.opt.listchars:append "trail:•"
+
+-- Hilight the text line of the cursor
+vim.o.cursorline = true
+
+-- Sync clipboard between OS and Neovim.
+-- See `:help 'clipboard'`
+vim.o.clipboard = 'unnamedplus'
+
+-- Indent wrapped lines
+vim.o.breakindent = true
+
+-- Save undo history
+vim.o.undofile = true
+
+-- Decrease update time
+vim.o.updatetime = 250
