@@ -1,0 +1,25 @@
+# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
+# Close input by once `Ecs` press
+# https://yazi-rs.github.io/docs/tips/#close-input-by-esc
+[[input.prepend_keymap]]
+on   = "<Esc>"
+run  = "close"
+desc = "Cancel input"
+
+
+# Dropping to the shell
+# https://yazi-rs.github.io/docs/tips/#dropping-to-shell
+[[manager.prepend_keymap]]
+on   = "!"
+run  = 'shell "pwsh" --block'
+desc = "Open PowerShell here"
+
+# smart-enter plugin
+# https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
+[[manager.prepend_keymap]]
+on   = "l"
+run  = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
