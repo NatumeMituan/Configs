@@ -40,7 +40,7 @@ function Link-ConfigDirectory {
     )
 
     # Backup the config directory if it exists and not a link
-    if ((Test-Path $configPath) -and -not ((Get-Item $configPath).Attributes -contains 'ReparsePoint')) {
+    if ((Test-Path $configPath) -and -not ((Get-Item $configPath).Attributes -band [System.IO.FileAttributes]::ReparsePoint)) {
         $timestamp = Get-Date -Format "yyyyMMddHHmmss"
         $backupPath = "$configPath.bak.$timestamp"
         Move-Item -Path $configPath -Destination $backupPath
