@@ -1,27 +1,34 @@
--- Make sure to setup `mapleader` and `maplocalleader` before
+ -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- See `:help mapleader`
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- See `:help vim.keymap.set()`
+local map = vim.keymap.set
 
 -- Disable arrow keys
-vim.keymap.set({"n", "v", "i"}, "<Left>", "<Nop>")
-vim.keymap.set({"n", "v", "i"}, "<Right>", "<Nop>")
-vim.keymap.set({"n", "v", "i"}, "<Up>", "<Nop>")
-vim.keymap.set({"n", "v", "i"}, "<Down>", "<Nop>")
+map({ "n", "v", "i" }, "<Left>", "<Nop>")
+map({ "n", "v", "i" }, "<Right>", "<Nop>")
+map({ "n", "v", "i" }, "<Up>", "<Nop>")
+map({ "n", "v", "i" }, "<Down>", "<Nop>")
 
 -- Move line up/down and reindent the line
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
 
 -- Scroll up/down and center the line
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up half screen' })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down halp screen' })
-vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = 'Scroll up full screen' })
-vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = 'Scroll down full screen' })
+map("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up half screen' })
+map("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down halp screen' })
+map("n", "<C-b>", "<C-b>zz", { desc = 'Scroll up full screen' })
+map("n", "<C-f>", "<C-f>zz", { desc = 'Scroll down full screen' })
 
---- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- Remap for dealing with word wrap
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Diagnostics
+map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show Line Diagnostics' })
+map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Show Diagnostics List' })
+map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
+map('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
