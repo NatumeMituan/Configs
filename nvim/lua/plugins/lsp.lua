@@ -13,7 +13,7 @@ return {
             ensure_installed = {'lua_ls', 'rust_analyzer'}
         }
     }},
-    -- See :h mason-lspconfig-automatic-server-setup
+    -- See `:h mason-lspconfig-automatic-server-setup`
     config = function()
         local lspconfig = require('lspconfig')
         local mason_lspconfig = require('mason-lspconfig')
