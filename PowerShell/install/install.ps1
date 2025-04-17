@@ -27,6 +27,16 @@ $tools = @(
         install = { scoop install main/autohotkey }
     },
     @{
+        # https://github.com/sharkdp/bat
+        name = "bat"
+        install = { scoop install main/bat }
+        config = {
+            # https://github.com/catppuccin/bat?tab=readme-ov-file#usage
+            wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+            bat cache --build
+        }
+    },
+    @{
         # https://github.com/eza-community/eza
         name = "eza"
         install = { scoop install main/eza }
@@ -53,6 +63,11 @@ $tools = @(
         install = { scoop install extras/psfzf }
     },
     @{
+        # https://www.greenwoodsoftware.com/less
+        name = "less"
+        install = { scoop install main/less }
+    },
+    @{
         # https://neovim.io/
         # https://github.com/neovim/neovim.github.io/
         name = "nvim"
@@ -76,6 +91,11 @@ $tools = @(
         install = { scoop install main/tlrc }
     },
     @{
+        # https://eternallybored.org/misc/wget/
+        name = "wget"
+        install = { scoop install main/wget }
+    },
+    @{
         name = "yazi"
         install = { . (Join-Path $PSScriptRoot "install_yazi.ps1") }
         configPath = (Join-Path "$env:APPDATA" "yazi")
@@ -87,7 +107,6 @@ $tools = @(
     }
 )
 
-Setup-Configs -tools $tools
-
 Install-Tools -tools $prerequisites
 Install-Tools -tools $tools
+Setup-Configs -tools $tools

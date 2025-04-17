@@ -26,8 +26,11 @@ function Setup-Configs {
     foreach ($tool in $tools) {
         if ($tool.configPath) {
             $targetPath = Join-Path $targetRoot $tool.name
-
             Link-ConfigDirectory -name $tool.name -configPath $tool.configPath -targetPath $targetPath
+        }
+
+        if($tool.config) {
+            & $tool.config
         }
     }
 }

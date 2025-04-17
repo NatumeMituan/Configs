@@ -1,3 +1,7 @@
+# bat
+# https://github.com/catppuccin/bat
+$ENV:BAT_THEME = "Catppuccin Macchiato"
+
 # oh-my-posh
 # https://ohmyposh.dev/docs/installation/prompt
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression

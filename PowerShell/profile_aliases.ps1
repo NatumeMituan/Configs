@@ -12,6 +12,9 @@ abbr tk 'take'
 # Editor
 abbr e 'nvim'
 
+# bat
+abbr b 'bat'
+
 # scoop
 abbr scp 'scoop'
 
