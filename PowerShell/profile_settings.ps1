@@ -1,6 +1,45 @@
+# SHELL
+
+$ENV:SHELL = "pwsh"
+
 # bat
 # https://github.com/catppuccin/bat
 $ENV:BAT_THEME = "Catppuccin Macchiato"
+
+# eza
+# https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#environment-variables
+# options to pass to fzf, ignoring the frecency score, which is {1}
+$ENV:_ZO_FZF_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'eza --tree --all --level=2 --color=always --icons {2}'"
+
+# fzf
+
+# https://github.com/catppuccin/fzf?tab=readme-ov-file#usage
+$ENV:FZF_DEFAULT_OPTS=@"
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+--color=selected-bg:#494d64
+--color=border:#363a4f,label:#cad3f5
+"@
+
+# https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
+# - preview with no decoration but number, and color
+# - <C-/> to cycle through how preview windows is displayed
+$ENV:FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+$ENV:FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo {} | Set-Clipboard)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+$ENV:FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'eza --tree --all --level=2 --color=always --icons {}'"
 
 # oh-my-posh
 # https://ohmyposh.dev/docs/installation/prompt
