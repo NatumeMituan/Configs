@@ -10,7 +10,14 @@ return {
             ensure_installed = { 'c', 'cpp', 'gitcommit', 'go', 'lua', 'markdown', 'python', 'rust', 'vimdoc', 'vim' },
             auto_install = true,
             sync_install = false,
-            highlight = { enable = true },
+            highlight = {
+                enable = true,
+                -- Names of language parsers instead of filetypes
+                -- `vimdoc` for checkhealth (highlighting `OK` etc)
+                -- To check the language of current buffer:
+                --   `:lua print(vim.treesitter.get_parser(0):lang())`
+                disable = { 'vimdoc' }
+            },
             indent = { enable = true },
         })
     end
