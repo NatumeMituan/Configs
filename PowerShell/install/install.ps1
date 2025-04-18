@@ -32,7 +32,7 @@ $tools = @(
         install = { scoop install main/bat }
         config = {
             # https://github.com/catppuccin/bat?tab=readme-ov-file#usage
-            wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
+            wget --no-verbose -O "$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme
             bat cache --build
         }
     },
@@ -61,6 +61,12 @@ $tools = @(
         # https://github.com/kelleyma49/PSFzf
         name = "Invoke-Fzf"
         install = { scoop install extras/psfzf }
+    },
+    @{
+        # https://github.com/jesseduffield/lazygit
+        name = "lazygit"
+        install = { scoop install extras/lazygit }
+        configPath = Join-Path "$env:LOCALAPPDATA" "lazygit"
     },
     @{
         # https://www.greenwoodsoftware.com/less
