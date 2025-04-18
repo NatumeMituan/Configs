@@ -102,8 +102,22 @@ $tools = @(
         install = { scoop install main/wget }
     },
     @{
+        # https://yazi-rs.github.io/
+        # https://github.com/sxyazi/yazi
         name = "yazi"
-        install = { . (Join-Path $PSScriptRoot "install_yazi.ps1") }
+        install = { scoop install main/yazi }
+        config = {
+            # flavors (themes)
+            # https://yazi-rs.github.io/docs/flavors/overview/
+            # https://github.com/yazi-rs/flavors/tree/main/catppuccin-macchiato.yazi
+            # https://github.com/yazi-rs/flavors/tree/main/catppuccin-latte.yazi
+            ya pack -a yazi-rs/flavors:catppuccin-latte
+            ya pack -a yazi-rs/flavors:catppuccin-macchiato
+
+            # smart-enter plugin
+            # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
+            ya pack -a yazi-rs/plugins:smart-enter
+        }
         configPath = (Join-Path "$env:APPDATA" "yazi")
     },
     @{
