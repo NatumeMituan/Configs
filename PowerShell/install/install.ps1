@@ -74,6 +74,11 @@ $tools = @(
         install = { scoop install main/less }
     },
     @{
+        # https://www.mingw-w64.org/
+        name = "gcc"
+        install = { scoop install main/mingw }
+    },
+    @{
         # https://neovim.io/
         # https://github.com/neovim/neovim.github.io/
         name = "nvim"

@@ -1,7 +1,7 @@
 return {
     -- https://github.com/neovim/nvim-lspconfig
     'neovim/nvim-lspconfig',
-    dependencies = {{
+    dependencies = { {
         -- https://github.com/williamboman/mason.nvim
         'williamboman/mason.nvim',
         build = ':MasonUpdate',
@@ -10,10 +10,9 @@ return {
         -- https://github.com/williamboman/mason-lspconfig.nvim
         'williamboman/mason-lspconfig.nvim',
         opts = {
-            ensure_installed = {'lua_ls', 'rust_analyzer'}
+            ensure_installed = { 'lua_ls', 'rust_analyzer' }
         }
-    }},
-    -- See `:h mason-lspconfig-automatic-server-setup`
+    } },
     config = function()
         local lspconfig = require('lspconfig')
         local mason_lspconfig = require('mason-lspconfig')
@@ -39,18 +38,22 @@ return {
             nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
             nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
             nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
-            nmap('<leader>f', function()
-                vim.lsp.buf.format({
-                    async = false
-                })
-                vim.diagnostic.show(bufnr)
-            end, '[f]ormat')
+            nmap('<leader>f',
+                function()
+                    vim.lsp.buf.format({
+                        async = false
+                    })
+                    vim.diagnostic.show(bufnr)
+                end, '[f]ormat')
         end
 
-        mason_lspconfig.setup_handlers({function(server_name)
-            lspconfig[server_name].setup({
-                on_attach = on_attach
-            })
-        end})
+        -- See `:h mason-lspconfig-automatic-server-setup`
+        mason_lspconfig.setup_handlers({
+            function(server_name)
+                lspconfig[server_name].setup({
+                    on_attach = on_attach
+                })
+            end
+        })
     end
 }
