@@ -13,15 +13,16 @@ return {
         spec = {
             {
                 mode = { 'n', 'v' },
-                { "<leader>c", group = "code" },
-                { "<leader>f", group = "file" },
-                { "<leader>g", group = "git" },
-                { "<leader>s", group = "search" },
-                { "[",         group = "prev" },
-                { "]",         group = "next" },
-                { "g",         group = "goto" },
-                { "gs",        group = "surround" },
-                { "z",         group = "fold" },
+                { "<leader>c",  group = "code" },
+                { "<leader>f",  group = "file" },
+                { "<leader>g",  group = "git" },
+                { "<leader>gh", group = "hunks" },
+                { "<leader>s",  group = "search" },
+                { "[",          group = "prev" },
+                { "]",          group = "next" },
+                { "g",          group = "goto" },
+                { "gs",         group = "surround" },
+                { "z",          group = "fold" },
             }
         }
     },

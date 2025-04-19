@@ -17,6 +17,7 @@ return {
             end,
             integrations = {
                 mason = true,
+                fidget = true,
                 native_lsp = {
                     underlines = {
                         errors = { "undercurl" },
