@@ -1,9 +1,9 @@
 return {
     -- https://github.com/hrsh7th/nvim-cmp
     'hrsh7th/nvim-cmp',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-nvim-lua',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
@@ -22,6 +22,7 @@ return {
                 ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-d>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-c>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
@@ -39,18 +40,19 @@ return {
                 end, { 'i', 's' }),
             }),
             sources = cmp.config.sources({
+                { name = 'lazydev' },
                 { name = 'nvim_lsp' },
-                { name = 'nvim_lua' },
             }, {
                 { name = 'buffer' },
                 { name = 'path' },
             })
         })
 
-        -- Use buffer source for `/` (search) and `:` (cmdline)
-        cmp.setup.cmdline('/', {
+        cmp.setup.cmdline({ '/', '?' }, {
             mapping = cmp.mapping.preset.cmdline(),
-            sources = { { name = 'buffer' } }
+            sources = {
+                { name = 'buffer' }
+            }
         })
 
         cmp.setup.cmdline(':', {
@@ -59,7 +61,8 @@ return {
                 { name = 'path' }
             }, {
                 { name = 'cmdline' }
-            })
+            }),
+            matching = { disallow_symbol_nonprefix_matching = false }
         })
     end
 }
