@@ -33,9 +33,24 @@ require("lazy").setup({
     -- automatically check for plugin updates
     checker = {
         enabled = true
-    }
+    },
+    performance = {
+        rtp = {
+            -- disable some rtp plugins
+            disabled_plugins = {
+                "gzip",
+                -- "matchit",
+                -- "matchparen",
+                -- "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                -- "tutor",
+                "zipPlugin",
+            },
+        },
+    },
 })
 
 -- LazyVim for reference:
 -- - https://github.com/LazyVim/LazyVim
--- - https://www.lazyvim.org/
+-- - https://www.lazyvim.org/configuration/lazy.nvim
