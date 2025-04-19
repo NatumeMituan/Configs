@@ -1,6 +1,7 @@
 return {
     -- https://github.com/nvim-lualine/lualine.nvim
     'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
     opts = {
         options = {
             icons_enabled = true,
@@ -9,5 +10,5 @@ return {
             section_separators = ''
         }
     },
-    dependencies = {{'nvim-tree/nvim-web-devicons'}}
+    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
 }

@@ -3,6 +3,7 @@ return {
     -- Windows: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    event = { "LazyFile", "VeryLazy" },
     config = function()
         local configs = require("nvim-treesitter.configs")
 
