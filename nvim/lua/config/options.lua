@@ -34,3 +34,6 @@ vim.o.undofile = true
 
 -- Decrease update time
 vim.o.updatetime = 250
+
+-- Decrease time to wait for a mapped key sequence to complete
+vim.o.timeoutlen = 250

@@ -5,7 +5,13 @@ return {
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            flavour = "macchiato"
+            flavour = "macchiato",
+            integrations = {
+                telescope = {
+                    enabled = true,
+                    style = "nvchad"
+                }
+            }
         })
         vim.cmd.colorscheme "catppuccin"
     end
