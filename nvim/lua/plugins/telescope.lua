@@ -36,7 +36,7 @@ return {
 
             -- search
             -- { '<leader>s"', "<cmd>Telescope registers<cr>",                     desc = "Search Registers" },
-            -- { "<leader>sa", "<cmd>Telescope autocommands<cr>",                  desc = "Search Auto Commands" },
+            { "<leader>sa", "<cmd>Telescope autocommands<cr>",                  desc = "Search Auto Commands" },
             { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>",     desc = "Search Current Buffer" },
             { "<leader>sc", "<cmd>Telescope command_history<cr>",               desc = "Search Command History" },
             { "<leader>sC", "<cmd>Telescope commands<cr>",                      desc = "Search Commands" },
