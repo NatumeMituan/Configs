@@ -21,10 +21,12 @@ require("lazy.core.handler.event").mappings.LazyFile = { id = "LazyFile", event 
 
 -- Setup lazy.nvim
 require("lazy").setup({
-    spec = { -- import your plugins
-        {
-            import = "plugins"
-        } },
+    spec = {
+        -- `setup` won't be called because there's no `opts`, `config`,
+        --   or `import = "lazyvim.plugins"` (which internally set `opts`)
+        { "LazyVim/LazyVim" },
+        { import = "plugins" },
+    },
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = {
@@ -53,4 +55,5 @@ require("lazy").setup({
 
 -- LazyVim for reference:
 -- - https://github.com/LazyVim/LazyVim
+-- - https://www.lazyvim.org/configuration/lazy.nvim
 -- - https://www.lazyvim.org/configuration/lazy.nvim

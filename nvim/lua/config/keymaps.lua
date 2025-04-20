@@ -1,4 +1,4 @@
- -- Make sure to setup `mapleader` and `maplocalleader` before
+-- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- See `:help mapleader`
 vim.g.mapleader = " "
@@ -28,7 +28,7 @@ map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Diagnostics
-map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show Line Diagnostics' })
+map('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show Line Diagnostics' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Show Diagnostics List' })
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
 map('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
