@@ -32,6 +32,10 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 
+-- Case sensitive only when there's uppercase letters in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
 -- Decrease update time
 vim.o.updatetime = 250
 
