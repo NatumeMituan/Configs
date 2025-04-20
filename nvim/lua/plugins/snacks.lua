@@ -7,11 +7,20 @@ return {
     opts = {
         -- Enabled if options are explicitly passed
 
-        -- https://github.com/folke/snacks.nvim/blob/main/docs/input.md
-        input = {},
-        -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
+        bigfile = {},
         explorer = {},
+        indent = {},
+        input = {},
+        notifier = {},
+        quickfile = {},
+        scope = {},
     },
+
+    config = function(_, opts)
+        require('snacks').setup(opts)
+        vim.g.snacks_animate = false
+    end,
+
     -- Default keymaps: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
     keys = {
         -- Reference:

@@ -26,6 +26,7 @@ return {
                         information = { "undercurl" },
                     },
                 },
+                snacks = true,
                 telescope = {
                     enabled = true,
                     style = "nvchad"
