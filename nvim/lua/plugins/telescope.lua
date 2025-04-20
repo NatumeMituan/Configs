@@ -3,7 +3,15 @@ return {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
     branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make',
+            enabled = vim.fn.executable('make') == 1,
+        }
+    },
     keys = function()
         -- Reference:
         --   - https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#usage
@@ -92,5 +100,13 @@ return {
                 },
             }
         }
+    end,
+    config = function(_, opts)
+        local ts = require('telescope')
+        ts.setup(opts)
+        -- https://github.com/nvim-telescope/telescope-fzf-native.nvim?tab=readme-ov-file#telescope-setup-and-configuration
+        -- `:lua print(vim.inspect(require("telescope").extensions))` to check
+        ts.load_extension('fzf')
     end
+
 }
