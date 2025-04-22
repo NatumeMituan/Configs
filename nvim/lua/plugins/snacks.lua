@@ -1,3 +1,12 @@
+local function term_nav(dir)
+    ---@param self snacks.terminal
+    return function(self)
+        return self:is_floating() and "<c-" .. dir .. ">" or vim.schedule(function()
+            vim.cmd.wincmd(dir)
+        end)
+    end
+end
+
 return {
     -- https://github.com/folke/snacks.nvim
     "folke/snacks.nvim",
@@ -14,11 +23,33 @@ return {
         notifier = {},
         quickfile = {},
         scope = {},
+        terminal = {
+            -- Reference: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/util.lua
+            win = {
+                keys = {
+                    nav_h = { "<c-h>", term_nav("h"), desc = "Go to Left Window", expr = true, mode = "t" },
+                    nav_j = { "<c-j>", term_nav("j"), desc = "Go to Lower Window", expr = true, mode = "t" },
+                    nav_k = { "<c-k>", term_nav("k"), desc = "Go to Upper Window", expr = true, mode = "t" },
+                    nav_l = { "<c-l>", term_nav("l"), desc = "Go to Right Window", expr = true, mode = "t" },
+                },
+            }
+        },
     },
 
     config = function(_, opts)
         require('snacks').setup(opts)
         vim.g.snacks_animate = false
+
+        -- Reference: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+        vim.keymap.set("n", "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
+        vim.keymap.set("n", "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
+            { desc = "Terminal (Root Dir)" })
+        vim.keymap.set("n", "<c-/>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
+            { desc = "Terminal (Root Dir)" })
+        vim.keymap.set("n", "<c-_>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
+            { desc = "Terminal (Root Dir)" })
+        vim.keymap.set("t", "<c-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+        vim.keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "Hide Terminal" })
     end,
 
     -- Default keymaps: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
