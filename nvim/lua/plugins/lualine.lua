@@ -14,6 +14,13 @@ return {
             section_separators = '',
         }
 
+        opts.sections.lualine_c = {
+            -- Reference: https://www.lazyvim.org/plugins/ui#lualinenvim
+            LazyVim.lualine.root_dir(),
+            { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
+            LazyVim.lualine.pretty_path({ relative = 'root' }),
+        }
+
         -- https://lazy.folke.io/usage
         table.insert(opts.sections.lualine_x, 1, {
             require("lazy.status").updates,
