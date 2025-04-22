@@ -41,8 +41,8 @@ return {
         vim.g.snacks_animate = false
 
         -- Reference: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
-        vim.keymap.set("n", "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
-        vim.keymap.set("n", "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
+        vim.keymap.set("n", "<leader>tw", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
+        vim.keymap.set("n", "<leader>tW", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
             { desc = "Terminal (Root Dir)" })
         vim.keymap.set("n", "<c-/>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
             { desc = "Terminal (Root Dir)" })
