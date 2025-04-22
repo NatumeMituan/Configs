@@ -1,5 +1,6 @@
 # SHELL
 
+# For FZF_CTRL_R_OPTS
 $ENV:SHELL = "pwsh"
 
 # bat

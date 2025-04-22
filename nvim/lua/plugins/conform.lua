@@ -9,10 +9,10 @@ return {
             -- Customize or remove this keymap to your liking
             "<leader>cf",
             function()
-                require("conform").format({ async = true })
+                require("conform").format()
             end,
             mode = "",
-            desc = "[c]onform [f]ormat",
+            desc = "Format Code",
         },
     },
     ---@module "conform"
@@ -20,9 +20,12 @@ return {
     opts = {
         -- Set default options
         default_format_opts = {
+            async = false,
+            quiet = false,
+            timeout_ms = 3000,
             lsp_format = "fallback",
         },
         -- Set up format-on-save
-        format_on_save = { timeout_ms = 500 },
+        format_on_save = {},
     },
 }
