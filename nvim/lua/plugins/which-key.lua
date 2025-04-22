@@ -18,6 +18,7 @@ return {
                 { "<leader>g",  group = "git" },
                 { "<leader>gh", group = "hunks" },
                 { "<leader>s",  group = "search" },
+                { "<leader>x",  group = "trouble" },
                 { "[",          group = "prev" },
                 { "]",          group = "next" },
                 { "g",          group = "goto" },
