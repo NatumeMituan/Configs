@@ -91,6 +91,9 @@ return {
                         ["<C-Down>"] = ta.cycle_history_next,
                         ["<C-Up>"] = ta.cycle_history_prev,
                     },
+                    n = {
+                        ['q'] = ta.close,
+                    }
                 },
                 layout_config = {
                     horizontal = {
