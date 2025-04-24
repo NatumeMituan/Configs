@@ -5,6 +5,28 @@ local icons = {
     Info  = " ",
 }
 
+local settings = {
+    -- https://rust-analyzer.github.io/book/other_editors.html#nvim-lsp
+    rust_analyzer = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+}
+
 return {
     -- https://github.com/neovim/nvim-lspconfig
     'neovim/nvim-lspconfig',
@@ -84,6 +106,8 @@ return {
             nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
             nmap('<leader>cl', '<cmd>LspInfo<cr>', 'Lsp Info')
             nmap('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
+
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end
 
         -- See `:h mason-lspconfig-automatic-server-setup`
@@ -91,7 +115,8 @@ return {
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities,
-                    on_attach = on_attach
+                    on_attach = on_attach,
+                    settings = settings[server_name]
                 })
             end
         })
