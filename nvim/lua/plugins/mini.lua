@@ -37,6 +37,12 @@ return {
         end,
     },
     {
+        -- https://github.com/echasnovski/mini.move
+        'echasnovski/mini.move',
+        event = 'VeryLazy',
+        config = true
+    },
+    {
         -- https://github.com/echasnovski/mini.pairs
         'echasnovski/mini.pairs',
         event = 'InsertEnter',

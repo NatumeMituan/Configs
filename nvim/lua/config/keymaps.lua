@@ -40,10 +40,6 @@ map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
--- Move line up/down and reindent the line
-map("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
-map("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
-
 -- Scroll up/down and center the line
 map("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up half screen' })
 map("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down halp screen' })
