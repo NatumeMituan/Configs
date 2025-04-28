@@ -12,6 +12,7 @@ return {
             theme = 'catppuccin',
             component_separators = '|',
             section_separators = '',
+            globalstatus = true,
         }
 
         opts.sections.lualine_c = {
@@ -27,6 +28,8 @@ return {
             cond = require("lazy.status").has_updates,
             color = { fg = require("catppuccin.palettes").get_palette('macchiato').peach },
         })
+
+        opts.extensions = { 'lazy', 'trouble' }
 
         return opts
     end,

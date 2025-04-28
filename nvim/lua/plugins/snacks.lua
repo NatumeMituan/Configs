@@ -55,6 +55,7 @@ return {
     -- Default keymaps: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
     keys = {
         -- Reference:
+        --   - https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage
         --   - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/editor/snacks_explorer.lua
         {
             "<leader>fe",
@@ -70,7 +71,9 @@ return {
             end,
             desc = "Explorer Snacks (cwd)",
         },
-        { "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
-        { "<leader>E", "<leader>fE", desc = "Explorer Snacks (cwd)",      remap = true },
+        { "<leader>e",  "<leader>fe",                      desc = "Explorer Snacks (root dir)", remap = true },
+        { "<leader>E",  "<leader>fE",                      desc = "Explorer Snacks (cwd)",      remap = true },
+        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse",                 mode = { "n", "v" } },
+        { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
     },
 }

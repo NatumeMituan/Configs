@@ -24,7 +24,7 @@ require("lazy").setup({
     spec = {
         -- `setup` won't be called because there's no `opts`, `config`,
         --   or `import = "lazyvim.plugins"` (which internally set `opts`)
-        { "LazyVim/LazyVim",  version = "*" },
+        { "LazyVim/LazyVim", version = "*" },
         { import = "plugins" },
     },
     -- Configure any other settings here. See the documentation for more details.
@@ -50,6 +50,9 @@ require("lazy").setup({
                 "zipPlugin",
             },
         },
+    },
+    ui = {
+        border = 'rounded',
     },
 })
 
