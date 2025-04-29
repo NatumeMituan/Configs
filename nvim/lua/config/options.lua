@@ -41,3 +41,11 @@ vim.o.updatetime = 250
 
 -- Decrease time to wait for a mapped key sequence to complete
 vim.o.timeoutlen = 250
+
+-- Default shell in nvim
+-- https://github.com/neovim/neovim/issues/13893#issuecomment-1409668526
+if vim.loop.os_uname().sysname == "Windows_NT" then
+    vim.opt.shell = 'pwsh'
+    vim.opt.shellcmdflag = '-nologo -noprofile -ExecutionPolicy RemoteSigned -command'
+    vim.opt.shellxquote = ''
+end
