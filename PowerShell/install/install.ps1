@@ -42,6 +42,11 @@ $tools = @(
         install = { scoop install main/eza }
     },
     @{
+        # https://github.com/dandavison/delta
+        name "delta"
+        install = { scoop install main/delta }
+    },
+    @{
         # https://github.com/sharkdp/fd
         name = "fd"
         install = { scoop install main/fd }
