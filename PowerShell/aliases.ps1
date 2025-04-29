@@ -41,6 +41,7 @@ abbr gca 'git add -A; git commit'
 abbr gph 'git push'
 abbr gpl 'git pull'
 abbr gd 'git diff'
+abbr gr 'git restore'
 
 # gsudo
 abbr sudo 'gsudo --loadProfile'
