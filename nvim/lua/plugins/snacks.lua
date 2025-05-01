@@ -34,6 +34,7 @@ return {
                 },
             }
         },
+        words = {},
     },
 
     config = function(_, opts)
@@ -71,10 +72,13 @@ return {
             end,
             desc = "Explorer Snacks (cwd)",
         },
-        { "<leader>e",  "<leader>fe",                      desc = "Explorer Snacks (root dir)", remap = true },
-        { "<leader>E",  "<leader>fE",                      desc = "Explorer Snacks (cwd)",      remap = true },
-        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse",                 mode = { "n", "v" } },
-        { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
-        { "<C-g>",      "<leader>gg",                      desc = "Lazygit",                    remap = true },
+        { "<leader>e",  "<leader>fe",                                          desc = "Explorer Snacks (root dir)", remap = true },
+        { "<leader>E",  "<leader>fE",                                          desc = "Explorer Snacks (cwd)",      remap = true },
+        { "<leader>gB", function() Snacks.gitbrowse() end,                     desc = "Git Browse",                 mode = { "n", "v" } },
+        { "<leader>gg", function() Snacks.lazygit() end,                       desc = "Lazygit" },
+        { "<C-g>",      "<leader>gg",                                          desc = "Lazygit",                    remap = true },
+        -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
+        { "]]",         function() Snacks.words.jump(vim.v.count1, true) end,  desc = "Next Reference",             mode = { "n", "t" } },
+        { "[[",         function() Snacks.words.jump(-vim.v.count1, true) end, desc = "Prev Reference",             mode = { "n", "t" } },
     },
 }
