@@ -54,6 +54,11 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadlineKeyHandler -Key Ctrl+d -Function ViExit
 Set-PSReadlineKeyHandler -Key Ctrl+k -Function PreviousHistory
 Set-PSReadlineKeyHandler -Key Ctrl+j -Function NextHistory
+Set-PSReadlineKeyHandler -Key Ctrl+g -ScriptBlock{
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('lazygit')
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
 
 # PSFzf
 # https://github.com/kelleyma49/PSFzf?tab=readme-ov-file#psreadline-integration

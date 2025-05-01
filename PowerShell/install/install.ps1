@@ -124,9 +124,11 @@ $tools = @(
             ya pack -a yazi-rs/flavors:catppuccin-latte
             ya pack -a yazi-rs/flavors:catppuccin-macchiato
 
-            # smart-enter plugin
             # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
             ya pack -a yazi-rs/plugins:smart-enter
+
+            # https://github.com/Lil-Dank/lazygit.yazi
+            ya pack -a Lil-Dank/lazygit
         }
         configPath = (Join-Path "$env:APPDATA" "yazi")
     },

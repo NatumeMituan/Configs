@@ -75,5 +75,6 @@ return {
         { "<leader>E",  "<leader>fE",                      desc = "Explorer Snacks (cwd)",      remap = true },
         { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse",                 mode = { "n", "v" } },
         { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
+        { "<C-g>",      "<leader>gg",                      desc = "Lazygit",                    remap = true },
     },
 }
