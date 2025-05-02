@@ -31,7 +31,7 @@ return {
             end
 
             -- Navigation
-            map("n", "]c", function()
+            map("n", "]h", function()
                 -- Git diff mode, `bang=true` to force the cursor movement
                 if vim.wo.diff then
                     vim.cmd.normal({ "]c", bang = true })
@@ -39,7 +39,7 @@ return {
                     gs.nav_hunk("next")
                 end
             end, "Next Hunk")
-            map("n", "[c", function()
+            map("n", "[h", function()
                 if vim.wo.diff then
                     vim.cmd.normal({ "[c", bang = true })
                 else
