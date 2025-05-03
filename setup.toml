@@ -1,0 +1,148 @@
+[installer]
+ubuntu = "brew"
+macos = "brew"
+windows = "scoop"
+
+##### Essential package #####
+[[package]]
+name = "build-essential"
+only = "ubuntu"
+installer.ubuntu = "apt"
+
+[[package]]
+name = "git"
+installer.ubuntu = "apt"
+
+[[package]]
+# https://eternallybored.org/misc/wget/
+name = "wget"
+installer.ubuntu = "apt"
+
+[[package]]
+name = "curl"
+installer.ubuntu = "apt"
+
+[[package]]
+# https://www.greenwoodsoftware.com/less
+name = "less"
+installer.ubuntu = "apt"
+
+[[package]]
+name = "tmux"
+installer.ubuntu = "apt"
+exclude = "git"
+dotfile = true
+
+[[package]]
+# https://github.com/sharkdp/bat
+# https://github.com/catppuccin/bat?tab=readme-ov-file#usage
+name = "bat"
+config_prerequisite.windows = "mkdir -p \"$(bat --config-dir)/themes\" -f"
+config_prerequisite.default = "mkdir -p \"$(bat --config-dir)/themes\""
+config = [
+    "wget --no-verbose -O \"$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme\" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme",
+    "bat cache --build",
+]
+
+[[package]]
+# https://github.com/eza-community/eza
+name = "eza"
+
+[[package]]
+# https://github.com/dandavison/delta
+name = "delta"
+config = [
+    "git config --global core.pager delta",
+    "git config --global interactive.diffFilter 'delta --color-only'",
+    "git config --global delta.navigate true",
+    "git config --global merge.conflictStyle zdiff3",
+]
+
+[[package]]
+# https://github.com/sharkdp/fd
+name = "fd"
+
+[[package]]
+# https://fishshell.com/
+# https://github.com/fish-shell/fish-shell
+name = "fish"
+exclude = "windows"
+dotfile = true
+config = [
+    "echo $(which fish) | sudo tee -a /etc/shells",
+    "chsh -s $(which fish)",
+]
+
+[[package]]
+# https://junegunn.github.io/fzf/
+# https://github.com/junegunn/fzf
+name = "fzf"
+
+[[package]]
+# https://github.com/jesseduffield/lazygit
+name = "lazygit"
+destination.windows = "%LOCALAPPDATA%"
+
+[[package]]
+# https://neovim.io/
+# https://github.com/neovim/neovim.github.io/
+name.default = "nvim"
+name.scoop = "neovim"
+destination.windows = "%LOCALAPPDATA%"
+
+[[package]]
+# https://github.com/BurntSushi/ripgrep
+name.default = "rg"
+name.scoop = "ripgrep"
+
+[[package]]
+# https://github.com/tldr-pages/tlrc
+name = "tlrc"
+
+[[package]]
+# https://yazi-rs.github.io/
+# https://github.com/sxyazi/yazi
+name = "yazi"
+dotfile = true
+config = "ya pack -i"
+destination.windows = "%APPDATA%/yazi/config"
+
+[[package]]
+# https://github.com/ajeetdsouza/zoxide
+name = "zoxide"
+
+##### Windows only #####
+[[package]]
+# https://github.com/g0t4/pwsh-abbr
+# https://www.powershellgallery.com/packages/Abbr
+name = "abbr"
+only = "windows"
+install = "Install-Module -Name Abbr"
+
+[[package]]
+# https://www.autohotkey.com/
+# https://github.com/AutoHotkey/AutoHotkey
+name = "autohotkey"
+only = "windows"
+
+[[package]]
+# https://github.com/gerardog/gsudo
+name = "gsudo"
+only = "windows"
+
+[[package]]
+# https://www.mingw-w64.org/
+name = "mingw"
+only = "windows"
+
+[[package]]
+# https://github.com/jandedobbeleer/oh-my-posh
+# Only winget and the Windows Store add the environment variable POSH_THEMES_PATH automatically
+name = "oh-my-posh"
+only = "windows"
+install = '''if (winget list | Select-String "OhMyPosh") { Write-Host "OhMyPosh is already installed." -ForegroundColor Yellow } else { winget install JanDeDobbeleer.OhMyPosh -s winget }'''
+
+[[package]]
+# https://github.com/kelleyma49/PSFzf
+name = "psfzf"
+only = "windows"

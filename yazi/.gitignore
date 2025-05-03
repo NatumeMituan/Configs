@@ -1,8 +1,7 @@
 *
 !.gitignore
-!config/
-!config/yazi.toml
-!config/theme.toml
-!config/keymap.toml
-!config/package.toml
+!yazi.toml
+!theme.toml
+!keymap.toml
+!package.toml
 
