@@ -1,5 +1,12 @@
+git:
+  paging:
+    colorArg: always
+    useConfig: false
+    pager: ${LAZYGIT_PAGER}
+
 gui:
   language: en
+  nerdFontsVersion: "3"
 
   # https://github.com/catppuccin/lazygit/blob/main/themes/macchiato/peach.yml
   theme:
