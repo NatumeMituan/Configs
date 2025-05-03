@@ -10,16 +10,11 @@ only = "ubuntu"
 installer.ubuntu = "apt"
 
 [[package]]
-name = "git"
-installer.ubuntu = "apt"
-
-[[package]]
-# https://eternallybored.org/misc/wget/
-name = "wget"
-installer.ubuntu = "apt"
-
-[[package]]
 name = "curl"
+installer.ubuntu = "apt"
+
+[[package]]
+name = "git"
 installer.ubuntu = "apt"
 
 [[package]]
@@ -32,6 +27,16 @@ name = "tmux"
 installer.ubuntu = "apt"
 exclude = "git"
 dotfile = true
+config = [
+    "rm -rf ~/.config/tmux/plugins",
+    "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm",
+    "git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux",
+]
+
+[[package]]
+# https://eternallybored.org/misc/wget/
+name = "wget"
+installer.ubuntu = "apt"
 
 [[package]]
 name = "xclip"
