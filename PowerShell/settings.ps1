@@ -7,13 +7,6 @@ $ENV:SHELL = "pwsh"
 # https://github.com/catppuccin/bat
 $ENV:BAT_THEME = "Catppuccin Macchiato"
 
-# eza
-# https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#environment-variables
-# options to pass to fzf, ignoring the frecency score, which is {1}
-$ENV:_ZO_FZF_OPTS="
-  --walker-skip .git,node_modules,target
-  --preview 'eza --tree --all --level=2 --color=always --icons {2}'"
-
 # fzf
 
 # https://github.com/catppuccin/fzf?tab=readme-ov-file#usage
@@ -71,5 +64,13 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory
 $ENV:YAZI_FILE_ONE = "$Env:GIT_INSTALL_ROOT\usr\bin\file.exe"
 
 # zoxide
+
 # https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#environment-variables
+# options to pass to fzf, ignoring the frecency score, which is {1}
+$ENV:_ZO_FZF_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'eza --tree --all --level=2 --color=always --icons {2}'"
+

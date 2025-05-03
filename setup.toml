@@ -34,6 +34,11 @@ exclude = "git"
 dotfile = true
 
 [[package]]
+name = "xclip"
+installer.ubuntu = "apt"
+only = "ubuntu"
+
+[[package]]
 # https://github.com/sharkdp/bat
 # https://github.com/catppuccin/bat?tab=readme-ov-file#usage
 name = "bat"
