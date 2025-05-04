@@ -92,14 +92,14 @@ name = "fzf"
 [[package]]
 # https://github.com/jesseduffield/lazygit
 name = "lazygit"
-destination.windows = "%LOCALAPPDATA%"
+destination.windows = "%LOCALAPPDATA%/lazygit"
 
 [[package]]
 # https://neovim.io/
 # https://github.com/neovim/neovim.github.io/
 name.default = "nvim"
 name.scoop = "neovim"
-destination.windows = "%LOCALAPPDATA%"
+destination.windows = "%LOCALAPPDATA%/nvim"
 config_prerequisite.ubuntu = "sudo ln -sf $(which nvim) /usr/local/bin/nvim"
 
 [[package]]
