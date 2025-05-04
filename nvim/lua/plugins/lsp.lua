@@ -45,7 +45,7 @@ return {
             "hrsh7th/cmp-nvim-lsp"
         },
         opts = {
-            ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer' }
+            ensure_installed = { 'bashls', 'clangd', 'lua_ls', 'pylsp', 'rust_analyzer', 'taplo' }
         }
     } },
     opts = {
