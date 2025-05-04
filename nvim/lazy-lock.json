@@ -34,5 +34,5 @@
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
-  "yazi.nvim": { "branch": "main", "commit": "d4b9957235c8b3a3de06d106818ab5acf51976bb" }
+  "yazi.nvim": { "branch": "main", "commit": "af51242f9a51c4da1104b8017c67551c87c662ae" }
 }

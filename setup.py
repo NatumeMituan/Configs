@@ -264,7 +264,8 @@ def main():
     info(f"Detected platform: {platform}")
 
     if args.package:
-        packages = [pkg for pkg in packages if pkg.get("name") == args.package]
+        packages = [pkg for pkg in packages if resolve_package_name(
+            pkg, None) == args.package]
         if not packages:
             error(f"Package '{args.package}' not found in configuration.")
             sys.exit(1)
