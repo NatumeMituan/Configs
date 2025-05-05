@@ -107,6 +107,10 @@ return {
             nmap('<leader>cl', '<cmd>LspInfo<cr>', 'Lsp Info')
             nmap('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
 
+            -- words
+            -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
+            nmap("]]", function() Snacks.words.jump(vim.v.count1, true) end, "Next Reference")
+            nmap("[[", function() Snacks.words.jump(-vim.v.count1, true) end, "Prev Reference")
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end
 
