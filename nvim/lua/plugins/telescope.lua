@@ -70,7 +70,7 @@ return {
             { 'gd',         '<cmd>Telescope lsp_definitions<cr>',               desc = 'Goto Definitions' },
             { 'gi',         '<cmd>Telescope lsp_implementations<cr>',           desc = 'Goto Implementations' },
             { 'gr',         '<cmd>Telescope lsp_references<cr>',                desc = 'Goto References' },
-            { 'gt',         '<cmd>Telescope lsp_type_definitions<cr>',          desc = 'Goto Type Definitions' },
+            { 'gy',         '<cmd>Telescope lsp_type_definitions<cr>',          desc = 'Goto Type Definitions' },
 
         }
     end,

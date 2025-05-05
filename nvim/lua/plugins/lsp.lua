@@ -100,7 +100,7 @@ return {
             nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
             -- nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
             -- nmap('gr', vim.lsp.buf.references, 'Goto References')
-            -- nmap('gt', vim.lsp.buf.type_definition, 'Goto Type Definition')
+            -- nmap('gy', vim.lsp.buf.type_definition, 'Goto Type Definition')
             nmap('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, 'Hover Documentation')
             nmap('gK', vim.lsp.buf.signature_help, 'Signature Help')
             nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
