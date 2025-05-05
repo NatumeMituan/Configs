@@ -93,14 +93,14 @@ abbr -a nd 'nvim -d'
 abbr -a now 'date -u +%Y-%m-%dT%H:%M:%SZ'
 
 # eza: https://github.com/eza-community/eza
-abbr -a l   'eza'
-abbr -a ls  'eza'
-abbr -a ll  'eza --long'
-abbr -a la  'eza --long --all'
-abbr -a lai 'eza --long --all --icons'
-abbr -a li  'eza --icons'
-abbr -a lt  'eza --tree'
-abbr -a lat 'eza --all --tree'
+abbr -a l   'eza --group-directories-last'
+abbr -a ls  'eza --group-directories-last'
+abbr -a ll  'eza --group-directories-last --long'
+abbr -a la  'eza --group-directories-last --long --all'
+abbr -a lai 'eza --group-directories-last --long --all --icons'
+abbr -a li  'eza --group-directories-last --icons'
+abbr -a lt  'eza --group-directories-last --tree'
+abbr -a lat 'eza --group-directories-last --all --tree'
 
 # lazygit
 abbr -a lg 'lazygit'
