@@ -53,11 +53,12 @@ return {
         vim.keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "Hide Terminal" })
     end,
 
-    -- Default keymaps: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
     keys = {
+        -- explorer
         -- Reference:
         --   - https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage
         --   - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/editor/snacks_explorer.lua
+        --   - Default keymaps: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
         {
             "<leader>fe",
             function()
@@ -72,13 +73,28 @@ return {
             end,
             desc = "Explorer Snacks (cwd)",
         },
-        { "<leader>e",  "<leader>fe",                                          desc = "Explorer Snacks (root dir)", remap = true },
-        { "<leader>E",  "<leader>fE",                                          desc = "Explorer Snacks (cwd)",      remap = true },
-        { "<leader>gB", function() Snacks.gitbrowse() end,                     desc = "Git Browse",                 mode = { "n", "v" } },
-        { "<leader>gg", function() Snacks.lazygit() end,                       desc = "Lazygit" },
-        { "<C-g>",      "<leader>gg",                                          desc = "Lazygit",                    remap = true },
+        { "<leader>e",  "<leader>fe",                      desc = "Explorer Snacks (root dir)", remap = true },
+        { "<leader>E",  "<leader>fE",                      desc = "Explorer Snacks (cwd)",      remap = true },
+        -- gitbrowse
+        { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse",                 mode = { "n", "v" } },
+        { "<leader>gg", function() Snacks.lazygit() end,   desc = "Lazygit" },
+        { "<C-g>",      "<leader>gg",                      desc = "Lazygit",                    remap = true },
+        -- notifier
+        -- https://www.lazyvim.org/plugins/ui#snacksnvim
+        {
+            "<leader>n",
+            function()
+                if Snacks.config.picker and Snacks.config.picker.enabled then
+                    Snacks.picker.notifications()
+                else
+                    Snacks.notifier.show_history()
+                end
+            end,
+            desc = "Notification History"
+        },
+        -- words
         -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
-        { "]]",         function() Snacks.words.jump(vim.v.count1, true) end,  desc = "Next Reference",             mode = { "n", "t" } },
-        { "[[",         function() Snacks.words.jump(-vim.v.count1, true) end, desc = "Prev Reference",             mode = { "n", "t" } },
+        { "]]", function() Snacks.words.jump(vim.v.count1, true) end,  desc = "Next Reference", mode = { "n", "t" } },
+        { "[[", function() Snacks.words.jump(-vim.v.count1, true) end, desc = "Prev Reference", mode = { "n", "t" } },
     },
 }
