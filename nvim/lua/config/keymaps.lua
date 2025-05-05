@@ -40,6 +40,20 @@ map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
+-- Buffers
+-- https://www.lazyvim.org/configuration/general#keymaps
+map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>bd", function()
+    Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
+map("n", "<leader>bo", function()
+    Snacks.bufdelete.other()
+end, { desc = "Delete Other Buffers" })
+map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+
 -- Scroll up/down and center the line
 map("n", "<C-u>", "<C-u>zz", { desc = 'Scroll up half screen' })
 map("n", "<C-d>", "<C-d>zz", { desc = 'Scroll down halp screen' })
@@ -53,5 +67,8 @@ map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- Diagnostics
 map('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show Line Diagnostics' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Show Diagnostics List' })
-map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous Diagnostic' })
-map('n', ']d', vim.diagnostic.goto_next, { desc = 'Next Diagnostic' })
+map('n', '[d', function() vim.diagnostic.jump { count = -1, float = true } end, { desc = 'Previous Diagnostic' })
+map('n', ']d', function() vim.diagnostic.jump { count = 1, float = true } end, { desc = 'Next Diagnostic' })
+
+-- Quit
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
