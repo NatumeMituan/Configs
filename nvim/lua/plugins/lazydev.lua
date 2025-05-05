@@ -10,8 +10,9 @@ return {
             -- Reference:
             --   - https://www.lazyvim.org/plugins/coding#lazydevnvim
             --   - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/coding.lua
-            { path = "snacks.nvim", words = { "Snacks" } },
-            { path = "LazyVim",     words = { "LazyVim" } },
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            { path = "snacks.nvim",        words = { "Snacks" } },
+            { path = "LazyVim",            words = { "LazyVim" } },
         },
     },
 }
