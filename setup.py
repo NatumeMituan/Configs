@@ -55,7 +55,7 @@ def detect_platform():
 
 def get_shell_runner(platform):
     if platform == "windows":
-        return ["pwsh", "-Command"]
+        return ["pwsh", "-NoProfile", "-Command"]
     else:
         return ["bash", "-c"]
 
