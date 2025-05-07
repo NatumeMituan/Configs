@@ -29,6 +29,7 @@ abbr fe 'Get-ChildItem ENV: | fzf'
 
 # git
 abbr g 'git'
+abbr gf 'git fetch'
 abbr gs 'git status' 
 abbr glg 'git log'
 abbr glo 'git log --oneline -5'
