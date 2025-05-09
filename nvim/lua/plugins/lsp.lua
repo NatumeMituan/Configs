@@ -6,25 +6,7 @@ local icons = {
 }
 
 local settings = {
-    -- https://rust-analyzer.github.io/book/other_editors.html#nvim-lsp
-    rust_analyzer = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
+
 }
 
 return {
@@ -68,9 +50,6 @@ return {
         },
     },
     config = function(_, opts)
-        local lspconfig = require('lspconfig')
-        local mason_lspconfig = require('mason-lspconfig')
-
         opts.diagnostics.virtual_text.prefix = function(diagnostic)
             for d, icon in pairs(icons) do
                 if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
@@ -81,48 +60,64 @@ return {
 
         vim.diagnostic.config(opts.diagnostics)
 
-        -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        -- See `h: LspAttach`
+        vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(args)
+                local nmap = function(keys, func, desc)
+                    vim.keymap.set('n', keys, func, {
+                        buffer = args.buf,
+                        desc = desc
+                    })
+                end
 
-        -- This function is called when an LSP server is attached to a buffer
-        local on_attach = function(_, bufnr)
-            local nmap = function(keys, func, desc)
-                vim.keymap.set('n', keys, func, {
-                    buffer = bufnr,
-                    desc = desc
-                })
+                -- Reference:
+                --   - https://www.lazyvim.org/keymaps#lsp
+                --   - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
+                -- nmap('gd', vim.lsp.buf.definition, 'Goto Definition')
+                nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+                -- nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
+                -- nmap('gr', vim.lsp.buf.references, 'Goto References')
+                -- nmap('gy', vim.lsp.buf.type_definition, 'Goto Type Definition')
+                nmap('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, 'Hover Documentation')
+                nmap('gK', vim.lsp.buf.signature_help, 'Signature Help')
+                nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
+                nmap('<leader>cl', '<cmd>LspInfo<cr>', 'Lsp Info')
+                nmap('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
+
+                -- words
+                -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
+                nmap("]]", function() Snacks.words.jump(vim.v.count1, true) end, "Next Reference")
+                nmap("[[", function() Snacks.words.jump(-vim.v.count1, true) end, "Prev Reference")
+                vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
             end
-            -- Reference:
-            --   - https://www.lazyvim.org/keymaps#lsp
-            --   - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
-            -- nmap('gd', vim.lsp.buf.definition, 'Goto Definition')
-            nmap('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-            -- nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
-            -- nmap('gr', vim.lsp.buf.references, 'Goto References')
-            -- nmap('gy', vim.lsp.buf.type_definition, 'Goto Type Definition')
-            nmap('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, 'Hover Documentation')
-            nmap('gK', vim.lsp.buf.signature_help, 'Signature Help')
-            nmap('<leader>ca', vim.lsp.buf.code_action, 'Code Action')
-            nmap('<leader>cl', '<cmd>LspInfo<cr>', 'Lsp Info')
-            nmap('<leader>cr', vim.lsp.buf.rename, 'Code Rename')
+        })
 
-            -- words
-            -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
-            nmap("]]", function() Snacks.words.jump(vim.v.count1, true) end, "Next Reference")
-            nmap("[[", function() Snacks.words.jump(-vim.v.count1, true) end, "Prev Reference")
-            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-        end
+        -- https://github.com/hrsh7th/cmp-nvim-lsp?tab=readme-ov-file#setup
+        vim.lsp.config('*', {
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        })
 
-        -- See `:h mason-lspconfig-automatic-server-setup`
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = settings[server_name]
-                })
-            end
+        -- See `:h lsp-quickstart`
+        -- https://rust-analyzer.github.io/book/other_editors.html#nvim-lsp
+        vim.lsp.config('rust_analyzer', {
+            settings = {
+                ["rust-analyzer"] = {
+                    imports = {
+                        granularity = {
+                            group = "module",
+                        },
+                        prefix = "self",
+                    },
+                    cargo = {
+                        buildScripts = {
+                            enable = true,
+                        },
+                    },
+                    procMacro = {
+                        enable = true
+                    },
+                },
+            },
         })
     end
 }
