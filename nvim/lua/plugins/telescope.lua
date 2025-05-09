@@ -69,7 +69,8 @@ return {
             -- goto
             { 'gd',         '<cmd>Telescope lsp_definitions<cr>',               desc = 'Goto Definitions' },
             { 'gi',         '<cmd>Telescope lsp_implementations<cr>',           desc = 'Goto Implementations' },
-            { 'gr',         '<cmd>Telescope lsp_references<cr>',                desc = 'Goto References' },
+            -- disbale gr-default: https://neovim.io/doc/user/change.html#gr-default
+            { 'gr',         '<cmd>Telescope lsp_references<cr>',                desc = 'Goto References',               nowait = true },
             { 'gy',         '<cmd>Telescope lsp_type_definitions<cr>',          desc = 'Goto Type Definitions' },
 
         }
