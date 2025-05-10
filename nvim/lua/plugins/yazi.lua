@@ -3,7 +3,6 @@ return
 {
     -- https://github.com/mikavilpas/yazi.nvim
     "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
     dependencies = {
         -- https://github.com/folke/snacks.nvim
         "folke/snacks.nvim"
