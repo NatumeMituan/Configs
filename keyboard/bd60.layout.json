@@ -62,7 +62,7 @@
       "KC_DOT",
       "KC_SLSH",
       "KC_NO",
-      "MT(MOD_LSFT | MOD_RSFT,KC_BSPC)",
+      "MT(MOD_LSFT | MOD_RSFT,KC_ENT)",
       "MO(1)",
       "KC_TRNS",
       "KC_LGUI",
