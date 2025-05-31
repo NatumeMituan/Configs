@@ -5,15 +5,11 @@ local icons = {
     Info  = " ",
 }
 
-local settings = {
-
-}
-
 return {
     -- https://github.com/neovim/nvim-lspconfig
     'neovim/nvim-lspconfig',
     version = "*",
-    event = "LazyFile",
+    event = "VeryLazy",
     dependencies = { {
         -- https://github.com/williamboman/mason.nvim
         'williamboman/mason.nvim',
