@@ -12,19 +12,19 @@ desc = "Cancel input"
 
 # Dropping to the shell
 # https://yazi-rs.github.io/docs/tips/#dropping-to-shell
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "!"
 run = 'shell "pwsh" --block'
 desc = "Open PowerShell here"
 
 # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "l"
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
 
 # https://github.com/Lil-Dank/lazygit.yazi
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = ["<C-g>"]
 run = "plugin lazygit"
 desc = "run lazygit"
