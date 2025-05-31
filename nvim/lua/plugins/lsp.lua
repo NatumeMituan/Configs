@@ -11,13 +11,13 @@ return {
     version = "*",
     event = "VeryLazy",
     dependencies = { {
-        -- https://github.com/williamboman/mason.nvim
-        'williamboman/mason.nvim',
+        -- https://github.com/mason-org/mason.nvim
+        'mason-org/mason.nvim',
         build = ':MasonUpdate',
         config = true
     }, {
-        -- https://github.com/williamboman/mason-lspconfig.nvim
-        'williamboman/mason-lspconfig.nvim',
+        -- https://github.com/mason-org/mason-lspconfig.nvim
+        'mason-org/mason-lspconfig.nvim',
         dependencies = {
             -- https://github.com/hrsh7th/cmp-nvim-lsp
             "hrsh7th/cmp-nvim-lsp"
