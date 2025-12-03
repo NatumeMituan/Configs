@@ -59,6 +59,12 @@ config = [
 name = "eza"
 
 [[package]]
+# https://github.com/fastfetch-cli/fastfetch
+name = "fastfetch"
+dotfile = true
+destination.windows = "%USERPROFILE%/.config/fastfetch"
+
+[[package]]
 # https://github.com/dandavison/delta
 name = "delta"
 config = [
