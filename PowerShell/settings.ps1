@@ -52,6 +52,11 @@ Set-PSReadlineKeyHandler -Key Ctrl+g -ScriptBlock{
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert('lazygit')
     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+Set-PSReadlineKeyHandler -Key Ctrl+y -ScriptBlock{
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('y')
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
 
 # PSFzf
 # https://github.com/kelleyma49/PSFzf?tab=readme-ov-file#psreadline-integration
