@@ -164,7 +164,6 @@ config = [
 
 [[package]]
 # https://github.com/jandedobbeleer/oh-my-posh
-# Only winget and the Windows Store add the environment variable POSH_THEMES_PATH automatically
 name = "oh-my-posh"
 only = "windows"
 install = '''if (winget list | Select-String "OhMyPosh") { Write-Host "OhMyPosh is already installed." -ForegroundColor Yellow } else { winget install JanDeDobbeleer.OhMyPosh -s winget }'''

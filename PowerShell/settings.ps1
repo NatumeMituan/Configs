@@ -36,8 +36,8 @@ $ENV:FZF_ALT_C_OPTS="
   --preview 'eza --tree --all --level=2 --color=always --icons {}'"
 
 # oh-my-posh
-# https://ohmyposh.dev/docs/installation/prompt
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression
+# https://ohmyposh.dev/docs/installation/customize
+oh-my-posh init pwsh --config "powerlevel10k_rainbow" | Invoke-Expression
 
 # PSReadLine
 # https://github.com/PowerShell/PSReadLine
