@@ -154,6 +154,15 @@ name = "mingw"
 only = "windows"
 
 [[package]]
+# https://github.com/PowerShell/PowerShell
+name = "pwsh"
+only = "windows"
+install = '''if (winget list | Select-String "Microsoft.PowerShell") { Write-Host "Microsoft.PowerShell is already installed." -ForegroundColor Yellow } else { winget install Microsoft.PowerShell -s winget }'''
+config = [
+    '''Get-ChildItem ".\PowerShell" -Filter *.ps1 | ForEach-Object { New-Item -ItemType SymbolicLink -Path "C:\Program Files\PowerShell\7\$($_.Name)" -Target $_.FullName }''',
+]
+
+[[package]]
 # https://github.com/jandedobbeleer/oh-my-posh
 # Only winget and the Windows Store add the environment variable POSH_THEMES_PATH automatically
 name = "oh-my-posh"
