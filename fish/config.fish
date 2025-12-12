@@ -7,6 +7,8 @@ string match -q "Darwin" $os;
 
 # `setenv` is to some extend equivalent to `set -gx`, check by `type setenv`
 
+setenv XDG_CONFIG_HOME "$HOME/.config"
+
 # address the issue that fish sets wrong colors in ssh/wsl
 # see: set_color --help
 setenv fish_term24bit 1

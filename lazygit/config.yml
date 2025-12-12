@@ -1,13 +1,11 @@
 git:
-  paging:
-    colorArg: always
-    useConfig: false
-    pager: ${LAZYGIT_PAGER}
-
+  pagers:
+    - colorArg: always
+      useConfig: false
+      pager: ${LAZYGIT_PAGER}
 gui:
   language: en
   nerdFontsVersion: "3"
-
   # https://github.com/catppuccin/lazygit/blob/main/themes/macchiato/peach.yml
   theme:
     activeBorderColor:
@@ -29,6 +27,5 @@ gui:
       - '#cad3f5'
     searchingActiveBorderColor:
       - '#eed49f'
-
   authorColors:
     '*': '#b7bdf8'
