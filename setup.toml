@@ -122,7 +122,7 @@ name = "tlrc"
 # https://github.com/sxyazi/yazi
 name = "yazi"
 dotfile = true
-config = "ya pack -i"
+config = "ya pkg install"
 destination.windows = "%APPDATA%/yazi/config"
 
 [[package]]
