@@ -69,6 +69,9 @@ end
 
 fish_vi_key_bindings
 
+abbr -a tk 'take'
+abbr -a rm-rf 'rm -rf'
+
 abbr -a g git
 abbr -a ga 'git add'
 abbr -a gaa 'git add -A'
