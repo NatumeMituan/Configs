@@ -84,7 +84,7 @@ return {
                 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/lsp/keymaps.lua
                 nmap("]]", function() Snacks.words.jump(vim.v.count1, true) end, "Next Reference")
                 nmap("[[", function() Snacks.words.jump(-vim.v.count1, true) end, "Prev Reference")
-                vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+                -- vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
             end
         })
 

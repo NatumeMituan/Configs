@@ -18,11 +18,11 @@ return {
 
         bigfile = {},
         explorer = {},
-        indent = {
-            scope = {
-                underline = true,
-            },
-        },
+        -- indent = {
+        --     scope = {
+        --         underline = true,
+        --     },
+        -- },
         input = {},
         notifier = {},
         quickfile = {},
