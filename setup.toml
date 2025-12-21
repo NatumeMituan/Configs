@@ -86,7 +86,7 @@ exclude = "windows"
 dotfile = true
 config = [
     "fish -c \"curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update\"",
-    "echo $(which fish) | sudo tee -a /etc/shells",
+    'grep -qxF "$(which fish)" /etc/shells || echo "$(which fish)" | sudo tee -a /etc/shells',
     "chsh -s $(which fish)",
 ]
 
