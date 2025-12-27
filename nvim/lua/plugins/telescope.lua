@@ -2,7 +2,7 @@ return {
     -- https://github.com/nvim-telescope/telescope.nvim
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
-    branch = '0.1.x',
+    tag = 'v0.2.0',
     dependencies = {
         'nvim-lua/plenary.nvim',
         -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
@@ -62,7 +62,6 @@ return {
             { "<leader>sR", "<cmd>Telescope resume<cr>",                        desc = "Search Resume" },
             { "<leader>sq", "<cmd>Telescope quickfix<cr>",                      desc = "Search Quickfix List" },
             { '<leader>sw', '<cmd>Telescope grep_string<cr>',                   desc = 'Search Current Word' },
-
             { '<leader>ss', '<cmd>Telescope lsp_document_symbols<cr>',          desc = 'Search Symbols' },
             { '<leader>sS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', desc = 'Search Symbols (Workspace)' },
 
@@ -98,6 +97,7 @@ return {
                 },
                 layout_config = {
                     horizontal = {
+                        preview_cutoff = 1,
                         width = 0.95,
                         preview_width = 0.6
                     }

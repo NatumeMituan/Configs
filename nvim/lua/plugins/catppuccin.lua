@@ -8,7 +8,7 @@ return {
         --   - https://www.lazyvim.org/plugins/colorscheme#catppuccin
         require("catppuccin").setup({
             flavour = "macchiato",
-            transparent_background = true,
+            -- transparent_background = true,
             custom_highlights = function(cp)
                 return {
                     LineNr = { fg = cp.text, bg = cp.surface0 },
