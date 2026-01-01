@@ -15,7 +15,7 @@ vim.o.expandtab = true
 
 -- Show whitespaces
 vim.opt.list = true
--- vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "eol:↴"
 -- vim.opt.listchars:append "trail:•"
 
@@ -25,6 +25,10 @@ vim.o.cursorline = true
 -- Sync clipboard between OS and Neovim.
 -- See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
+
+-- Disable line wrap
+vim.o.wrap = false
+vim.o.colorcolumn = "100"
 
 -- Indent wrapped lines
 vim.o.breakindent = true
