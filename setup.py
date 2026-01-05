@@ -197,8 +197,11 @@ def resolve_config_prerequisite(pkg, platform):
     return cmds
 
 
-def resolve_config_commands(pkg):
+def resolve_config_commands(pkg, platform):
     cmds = pkg.get("config")
+
+    if isinstance(cmds, dict):
+        cmds = cmds.get(platform, None)
 
     if isinstance(cmds, str):
         cmds = [cmds]
@@ -213,7 +216,7 @@ def run_config_commands(pkg, platform, name):
             run_command_interactive(
                 platform, cmd, f"Running config prerequisite for {name}")
 
-    cmds = resolve_config_commands(pkg)
+    cmds = resolve_config_commands(pkg, platform)
     if cmds:
         for cmd in cmds:
             run_command_interactive(

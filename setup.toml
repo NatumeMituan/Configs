@@ -16,6 +16,12 @@ installer.ubuntu = "apt"
 [[package]]
 name = "git"
 installer.ubuntu = "apt"
+config.windows = [
+    'git config --file $HOME/.gitconfig-personal user.name NatumeMituan',
+    'git config --file $HOME/.gitconfig-personal user.email NatumeMituan@gmail.com',
+    'git config --global includeIf.hasconfig:remote.*.url:https://github.com/NatumeMituan/**.path $HOME/.gitconfig-personal',
+]
+
 
 [[package]]
 # https://www.greenwoodsoftware.com/less
