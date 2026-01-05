@@ -163,10 +163,24 @@ only = "windows"
 # https://github.com/PowerShell/PowerShell
 name = "pwsh"
 only = "windows"
-install = '''if (winget list | Select-String "Microsoft.PowerShell") { Write-Host "Microsoft.PowerShell is already installed." -ForegroundColor Yellow } else { winget install Microsoft.PowerShell -s winget }'''
-config = [
-    '''Get-ChildItem ".\PowerShell" -Filter *.ps1 | ForEach-Object { New-Item -ItemType SymbolicLink -Path "C:\Program Files\PowerShell\7\$($_.Name)" -Target $_.FullName }''',
-]
+install = '''
+if (winget list | Select-String "Microsoft.PowerShell") {
+    Write-Host "Microsoft.PowerShell is already installed." -ForegroundColor Yellow
+} else {
+    winget install Microsoft.PowerShell -s winget
+}
+'''
+config = ['''
+Get-ChildItem ".\PowerShell" -Filter *.ps1 |
+ForEach-Object {
+    $Source = "C:\Program Files\PowerShell\7\$($_.Name)"
+    $Target = $_.FullName
+    if (Test-Path $Source) {
+        Remove-Item $Source -Force
+    }
+    New-Item -ItemType SymbolicLink -Path $Source -Target $Target
+}
+''']
 
 [[package]]
 # https://github.com/jandedobbeleer/oh-my-posh
