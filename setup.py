@@ -176,7 +176,11 @@ def link_dotfiles(pkg, platform, root_dir):
             )
             dest.rename(backup_path)
 
-    os.symlink(src, dest, target_is_directory=True)
+    try:
+        os.symlink(src, dest, target_is_directory=True)
+    except FileExistsError:
+        os.remove(dest)
+        os.symlink(src, dest, target_is_directory=True)
     success(f"Linked dotfile: {src} → {dest}")
 
 
