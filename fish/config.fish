@@ -113,6 +113,9 @@ abbr -a lg 'lazygit'
 # https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md#delta
 setenv LAZYGIT_PAGER 'delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'
 
+# opencode
+abbr -a oc 'opencode'
+
 # zoxide
 if type -q zoxide
     # https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation
