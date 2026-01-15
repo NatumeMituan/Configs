@@ -16,6 +16,32 @@ function what {
     }
 }
 
+# opencode
+function oc {
+    $oldShell = $env:SHELL
+    $oldGitBash = $env:OPENCODE_GIT_BASH_PATH
+    try {
+        $git = Get-Command git -ErrorAction SilentlyContinue
+        if ($git) {
+            $gitDir = Split-Path -Parent $git.Path
+            if ($gitDir -eq (Join-Path $env:USERPROFILE "scoop\shims")) {
+                $bash = Join-Path $gitDir "bash.exe"
+                if (Test-Path $bash) { $env:OPENCODE_GIT_BASH_PATH = $bash }
+            }
+            if ($null -eq $env:OPENCODE_GIT_BASH_PATH) {
+                $bash = Join-Path (Split-Path -Parent $gitDir) "bin\bash.exe"
+                if (Test-Path $bash) { $env:OPENCODE_GIT_BASH_PATH = $bash }
+            }
+        }
+        Remove-Item Env:SHELL -ErrorAction SilentlyContinue
+        opencode @args
+    } finally {
+        if ($null -eq $oldShell) { Remove-Item Env:SHELL -ErrorAction SilentlyContinue } else { $env:SHELL = $oldShell }
+        if ($null -eq $oldGitBash) { Remove-Item Env:OPENCODE_GIT_BASH_PATH -ErrorAction SilentlyContinue } else { $env:OPENCODE_GIT_BASH_PATH = $oldGitBash }
+    }
+
+}
+
 # yazi
 function y {
     $tmp = [System.IO.Path]::GetTempFileName()

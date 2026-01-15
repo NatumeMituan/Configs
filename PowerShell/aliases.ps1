@@ -50,8 +50,5 @@ abbr sudo 'gsudo --loadProfile'
 # lazygit
 abbr lg 'lazygit'
 
-# opencode
-abbr oc 'opencode'
-
 # scoop
 abbr scp 'scoop'
