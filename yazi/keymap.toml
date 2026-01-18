@@ -14,8 +14,15 @@ desc = "Cancel input"
 # https://yazi-rs.github.io/docs/tips/#dropping-to-shell
 [[mgr.prepend_keymap]]
 on = "!"
-run = 'shell "pwsh" --block'
-desc = "Open PowerShell here"
+for = "unix"
+run = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+# For Windows:
+[[mgr.prepend_keymap]]
+on = "!"
+for = "windows"
+run = 'shell "pwsh.exe" --block'
+desc = "Open pwsh here"
 
 # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
 [[mgr.prepend_keymap]]

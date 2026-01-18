@@ -1,19 +1,19 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "864a021"
-hash = "2d3c17251b47e9e59535247ad8013814"
+rev = "56971d0"
+hash = "c3f5c63722344045822f121efe2d2553"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "5249d156940fa0ee9f00ca148e574eeb"
+rev = "0e56060"
+hash = "9ccd90bbd535b521439af1f504df25c"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "68326b4"
-hash = "4f33260910430eca8a7937d9c2cfd855"
+rev = "4a1802a"
+hash = "a4717d4a92410fe49be5be02b73667b1"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "68326b4"
-hash = "2bcf14da7d6b95ecf32956ed2bc14c9e"
+rev = "4a1802a"
+hash = "79dc187f9ca4e1001ce0023e180227b3"

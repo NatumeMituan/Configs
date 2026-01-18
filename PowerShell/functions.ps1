@@ -43,6 +43,7 @@ function oc {
 }
 
 # yazi
+# https://yazi-rs.github.io/docs/quick-start#shell-wrapper
 function y {
     $tmp = [System.IO.Path]::GetTempFileName()
     yazi $args --cwd-file="$tmp"
