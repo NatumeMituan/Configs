@@ -120,6 +120,10 @@ name.default = "rg"
 name.scoop = "ripgrep"
 
 [[package]]
+name = "starship"
+config = "starship preset nerd-font-symbols > ~/.config/starship.toml"
+
+[[package]]
 # https://github.com/tldr-pages/tlrc
 name = "tlrc"
 

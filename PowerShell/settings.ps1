@@ -37,7 +37,10 @@ $ENV:FZF_ALT_C_OPTS="
 
 # oh-my-posh
 # https://ohmyposh.dev/docs/installation/customize
-oh-my-posh init pwsh --config "powerlevel10k_rainbow" | Invoke-Expression
+# oh-my-posh init pwsh --config "powerlevel10k_rainbow" | Invoke-Expression
+
+# Starship
+Invoke-Expression (&starship init powershell)
 
 # PSReadLine
 # https://github.com/PowerShell/PSReadLine
