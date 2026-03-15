@@ -85,4 +85,4 @@ $ENV:_ZO_FZF_OPTS="
   --preview 'eza --tree --all --level=2 --color=always --icons {2}'"
 
 # fastfetch
-fastfetch -c "$HOME\.config\fastfetch\config.jsonc"
+# fastfetch -c "$HOME\.config\fastfetch\config.jsonc"
