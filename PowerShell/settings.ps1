@@ -12,7 +12,7 @@ $ENV:BAT_THEME = "Catppuccin Macchiato"
 # fzf
 
 # https://github.com/catppuccin/fzf?tab=readme-ov-file#usage
-$ENV:FZF_DEFAULT_OPTS=@"
+$ENV:FZF_DEFAULT_OPTS = @"
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
 --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
@@ -23,26 +23,26 @@ $ENV:FZF_DEFAULT_OPTS=@"
 # https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
 # - preview with no decoration but number, and color
 # - <C-/> to cycle through how preview windows is displayed
-$ENV:FZF_CTRL_T_OPTS="
+$ENV:FZF_CTRL_T_OPTS = "
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-$ENV:FZF_CTRL_R_OPTS="
+$ENV:FZF_CTRL_R_OPTS = "
   --bind 'ctrl-y:execute-silent(echo {} | Set-Clipboard)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
 
-$ENV:FZF_ALT_C_OPTS="
+$ENV:FZF_ALT_C_OPTS = "
   --walker-skip .git,node_modules,target
   --preview 'eza --tree --all --level=2 --color=always --icons {}'"
 
 # oh-my-posh
 # https://ohmyposh.dev/docs/installation/customize
-# oh-my-posh init pwsh --config "powerlevel10k_rainbow" | Invoke-Expression
+oh-my-posh init pwsh --config "powerlevel10k_rainbow" | Invoke-Expression
 
 # Starship
-Invoke-Expression (&starship init powershell)
+# Invoke-Expression (&starship init powershell)
 
 # PSReadLine
 # https://github.com/PowerShell/PSReadLine
@@ -52,15 +52,15 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadlineKeyHandler -Key Ctrl+d -Function ViExit
 Set-PSReadlineKeyHandler -Key Ctrl+k -Function PreviousHistory
 Set-PSReadlineKeyHandler -Key Ctrl+j -Function NextHistory
-Set-PSReadlineKeyHandler -Key Ctrl+g -ScriptBlock{
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('lazygit')
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+Set-PSReadlineKeyHandler -Key Ctrl+g -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert('lazygit')
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
-Set-PSReadlineKeyHandler -Key Ctrl+y -ScriptBlock{
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('y')
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+Set-PSReadlineKeyHandler -Key Ctrl+y -ScriptBlock {
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert('y')
+  [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
 # PSFzf
@@ -80,7 +80,7 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#environment-variables
 # options to pass to fzf, ignoring the frecency score, which is {1}
-$ENV:_ZO_FZF_OPTS="
+$ENV:_ZO_FZF_OPTS = "
   --walker-skip .git,node_modules,target
   --preview 'eza --tree --all --level=2 --color=always --icons {2}'"
 
