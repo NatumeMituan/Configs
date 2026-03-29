@@ -67,6 +67,7 @@ if type -q nvim
     setenv EDITOR nvim
 end
 
+set -g fish_greeting
 set -g fish_key_bindings fish_vi_key_bindings
 
 abbr -a tk 'take'
