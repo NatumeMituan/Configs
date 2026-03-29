@@ -259,6 +259,11 @@ def main():
         type=str,
         help="Specify a single package to install by name.",
     )
+    parser.add_argument(
+        "--link-only",
+        action="store_true",
+        help="Only link dotfiles, skip installation and config commands.",
+    )
     args = parser.parse_args()
 
     root_dir = Path(__file__).parent
@@ -282,12 +287,13 @@ def main():
             info(f"Skipping {pkg.get('name')} (filtered by platform)")
             continue
 
-        try:
-            cmd, name = build_install_command(pkg, platform, installers)
-            run_command_interactive(platform, cmd, f"Installing {name}")
-        except Exception as e:
-            error(f"Installation failed for {name}: {e}")
-            sys.exit(1)  # Stop execution on error
+        if not args.link_only:
+            try:
+                cmd, name = build_install_command(pkg, platform, installers)
+                run_command_interactive(platform, cmd, f"Installing {name}")
+            except Exception as e:
+                error(f"Installation failed for {name}: {e}")
+                sys.exit(1)  # Stop execution on error
 
         try:
             link_dotfiles(pkg, platform, root_dir)
@@ -295,11 +301,12 @@ def main():
             error(f"Dotfile linking failed: {e}")
             sys.exit(1)  # Stop execution on error
 
-        try:
-            run_config_commands(pkg, platform, name)
-        except Exception as e:
-            error(f"Config command failed: {e}")
-            sys.exit(1)  # Stop execution on error
+        if not args.link_only:
+            try:
+                run_config_commands(pkg, platform, name)
+            except Exception as e:
+                error(f"Config command failed: {e}")
+                sys.exit(1)  # Stop execution on error
 
 
 if __name__ == "__main__":
