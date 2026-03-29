@@ -139,6 +139,14 @@ destination.windows = "%APPDATA%/yazi/config"
 # https://github.com/ajeetdsouza/zoxide
 name = "zoxide"
 
+[[package]]
+# https://karabiner-elements.pqrs.org/
+name.default = "karabiner"
+name.brew = "karabiner-elements"
+only = "macos"
+install = "brew install --cask karabiner-elements"
+dotfile = true
+
 ##### Windows only #####
 [[package]]
 # https://github.com/g0t4/pwsh-abbr
