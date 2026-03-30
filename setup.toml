@@ -33,11 +33,15 @@ name = "tmux"
 installer.ubuntu = "apt"
 exclude = "windows"
 dotfile = true
-config = [
-    "rm -rf ~/.config/tmux/plugins",
-    "git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm",
-    "git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux",
-]
+
+[[package.dependency]]
+url = "https://github.com/tmux-plugins/tpm"
+dest = "~/.config/tmux/plugins/tpm"
+
+[[package.dependency]]
+url = "https://github.com/catppuccin/tmux.git"
+dest = "~/.config/tmux/plugins/catppuccin/tmux"
+ref = "v2.1.3"
 
 [[package]]
 # https://eternallybored.org/misc/wget/
@@ -53,12 +57,12 @@ only = "ubuntu"
 # https://github.com/sharkdp/bat
 # https://github.com/catppuccin/bat?tab=readme-ov-file#usage
 name = "bat"
-config_prerequisite.windows = "mkdir -p \"$(bat --config-dir)/themes\" -f"
-config_prerequisite.default = "mkdir -p \"$(bat --config-dir)/themes\""
-config = [
-    "wget --no-verbose -O \"$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme\" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme",
-    "bat cache --build",
-]
+config = "bat cache --build"
+
+[[package.dependency]]
+type = "file"
+url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme"
+dest = "$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme"
 
 [[package]]
 # https://github.com/eza-community/eza
