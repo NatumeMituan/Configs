@@ -6,21 +6,23 @@ import tomllib
 import argparse
 from pathlib import Path
 
-from colorama import init, Fore, Style
-
-init()
-
-
 # ─────────────────────────────────────────────────────────────────────
 # Colored Logging
 # ─────────────────────────────────────────────────────────────────────
 
+RESET = "\033[0m"
+BLUE = "\033[34m"
+YELLOW = "\033[33m"
+RED = "\033[31m"
+GREEN = "\033[32m"
+MAGENTA = "\033[35m"
 
-def info(msg): print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {msg}")
-def warn(msg): print(f"{Fore.YELLOW}[WARN]{Style.RESET_ALL} {msg}")
-def error(msg): print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} {msg}")
-def success(msg): print(f"{Fore.GREEN}[OK]{Style.RESET_ALL} {msg}")
-def shell(msg): print(f"{Fore.MAGENTA}$ {msg}{Style.RESET_ALL}")
+
+def info(msg): print(f"{BLUE}[INFO]{RESET} {msg}")
+def warn(msg): print(f"{YELLOW}[WARN]{RESET} {msg}")
+def error(msg): print(f"{RED}[ERROR]{RESET} {msg}")
+def success(msg): print(f"{GREEN}[OK]{RESET} {msg}")
+def shell(msg): print(f"{MAGENTA}$ {msg}{RESET}")
 
 
 # ─────────────────────────────────────────────────────────────────────
