@@ -64,8 +64,8 @@
                 "KC_COMMA",
                 "KC_DOT",
                 "KC_SLASH",
-                "KC_BSPACE",
-                "MO(1)"
+                "KC_RSHIFT",
+                "KC_CAPSLOCK"
             ],
             [
                 "KC_LCTRL",
@@ -213,7 +213,7 @@
                 "KC_TRNS",
                 "KC_TRNS",
                 "KC_TRNS",
-                "KC_TRNS"
+                "KC_PAUSE"
             ],
             [
                 "KC_TRNS",
@@ -228,7 +228,7 @@
                 "KC_TRNS",
                 "KC_TRNS",
                 "KC_TRNS",
-                "KC_TRNS",
+                "KC_ENTER",
                 "KC_TRNS"
             ],
             [
@@ -250,23 +250,7 @@
         ],
         [
             [
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS"
-            ],
-            [
-                "KC_TRNS",
+                "KC_ESCAPE",
                 "KC_TRNS",
                 "KC_TRNS",
                 "KC_TRNS",
@@ -283,6 +267,22 @@
             ],
             [
                 "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_LCTRL",
                 "KC_TRNS",
                 "KC_TRNS",
                 "KC_TRNS",
@@ -320,7 +320,7 @@
                 -1,
                 -1,
                 -1,
-                "KC_TRNS",
+                "KC_SPACE",
                 -1,
                 -1,
                 -1,
@@ -1100,6 +1100,7 @@
             "options": 7
         }
     ],
+    "alt_repeat_key": [],
     "settings": {
         "1": 0,
         "2": 50,
