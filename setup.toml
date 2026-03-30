@@ -140,6 +140,13 @@ destination.windows = "%APPDATA%/yazi/config"
 name = "zoxide"
 
 [[package]]
+# https://ghostty.org/
+name = "ghostty"
+only = "macos"
+install = "brew install --cask ghostty"
+dotfile = true
+
+[[package]]
 # https://karabiner-elements.pqrs.org/
 name.default = "karabiner"
 name.brew = "karabiner-elements"
