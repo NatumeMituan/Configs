@@ -25,6 +25,196 @@
                         ]
                     },
                     {
+                        "description": "Swap Cmd/Opt — built-in keyboard, Windows App only",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [{ "is_built_in_keyboard": true }],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_option" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [{ "is_built_in_keyboard": true }],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [{ "is_built_in_keyboard": true }],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_option" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [{ "is_built_in_keyboard": true }],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Swap Cmd/Opt — external keyboard, exclude Windows App",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 13873,
+                                                "vendor_id": 21320
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_option" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 13873,
+                                                "vendor_id": 21320
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 13873,
+                                                "vendor_id": 21320
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_option" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 13873,
+                                                "vendor_id": 21320
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "right_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Spacebar → hjkl arrows (hold) / Space (tap) — built-in keyboard only",
                         "manipulators": [
                             {
@@ -194,22 +384,6 @@
                     },
                     "ignore": false,
                     "simple_modifications": [
-                        {
-                            "from": { "key_code": "left_command" },
-                            "to": [{ "key_code": "left_option" }]
-                        },
-                        {
-                            "from": { "key_code": "left_option" },
-                            "to": [{ "key_code": "left_command" }]
-                        },
-                        {
-                            "from": { "key_code": "right_command" },
-                            "to": [{ "key_code": "right_option" }]
-                        },
-                        {
-                            "from": { "key_code": "right_option" },
-                            "to": [{ "key_code": "right_command" }]
-                        },
                         {
                             "from": { "key_code": "caps_lock" },
                             "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
