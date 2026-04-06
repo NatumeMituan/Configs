@@ -18,11 +18,6 @@ setenv LESS '-sRiM -Dd+b$Du+y$ --incsearch --use-color'
 
 fish_add_path "$HOME/.local/bin"
 
-# cargo: https://github.com/rust-lang/cargo
-if [ -f $HOME/.cargo/bin/cargo ]
-    fish_add_path "$HOME/.cargo/bin"
-end
-
 if type -q bat
     setenv BAT_THEME 'Catppuccin Macchiato'
     abbr -a b 'bat'
