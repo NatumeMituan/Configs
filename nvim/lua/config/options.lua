@@ -26,8 +26,8 @@ vim.o.cursorline = true
 -- See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
--- Disable line wrap
-vim.o.wrap = false
+-- Enable line wrap
+vim.o.wrap = true
 vim.o.colorcolumn = "100"
 
 -- Indent wrapped lines
