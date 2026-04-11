@@ -2,7 +2,10 @@
 
 theme = Catppuccin Macchiato
 font-size = 20
-quick-terminal-size = 50%
+quick-terminal-size = 60%
+
+# https://github.com/ghostty-org/ghostty/discussions/8419#discussioncomment-15725026
+window-save-state = never
 
 keybind = global:opt+backquote=toggle_quick_terminal
 
