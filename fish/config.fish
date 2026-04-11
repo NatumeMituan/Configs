@@ -1,4 +1,4 @@
-set os (uname)
+set -l os (uname)
 # homebrew: https://github.com/Homebrew/brew
 
 string match -q "Darwin" $os;
@@ -23,15 +23,16 @@ if type -q bat
     abbr -a b 'bat'
 end
 
+# https://github.com/catppuccin/fzf?tab=readme-ov-file#usage
+set -l fzf_theme_colors '--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+--color=selected-bg:#494d64
+--color=border:#363a4f,label:#cad3f5'
+
 # fzf: https://github.com/junegunn/fzf
 if type -q fzf
-    # https://github.com/catppuccin/fzf?tab=readme-ov-file#usage
-    setenv FZF_DEFAULT_OPTS '
-        --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
-        --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
-        --color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
-        --color=selected-bg:#494d64
-        --color=border:#363a4f,label:#cad3f5'
+    setenv FZF_DEFAULT_OPTS "$fzf_theme_colors"
 
     # https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
     # - preview with no decoration but number, and color
@@ -42,10 +43,12 @@ if type -q fzf
       --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
     string match -q "Darwin" $os;
-        and set clipboard_cmd "pbcopy";
-        or  set clipboard_cmd "xclip -selection clipboard"
+        and set -l clipboard_cmd "pbcopy";
+        or  set -l clipboard_cmd "xclip -selection clipboard"
     setenv FZF_CTRL_R_OPTS "
-      --bind 'ctrl-y:execute-silent(echo -n {2..} | $clipboard_cmd)+abort'
+      --with-nth 1,3.. 
+      --bind 'alt-t:change-with-nth(2..|3..|1,3..)'
+      --bind 'ctrl-y:execute-silent(echo -n {3..} | $clipboard_cmd)+abort'
       --color header:italic
       --header 'Press CTRL-Y to copy command into clipboard'"
 
@@ -118,10 +121,11 @@ if type -q zoxide
     zoxide init fish | source
 
     # https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#environment-variables
-    # options to pass to fzf, ignoring the frecency score, which is {1}
+    # options to pass to fzf; {2} in preview to skip the frecency score ({1})
     setenv _ZO_FZF_OPTS "
       --walker-skip .git,node_modules,target
-      --preview 'eza --tree --all --level=2 --color=always --icons {2}'"
+      --preview 'eza --tree --all --level=2 --color=always --icons {2}'
+      $fzf_theme_colors"
 end
 
 
