@@ -40,6 +40,9 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Auto reload files when modified externally
+vim.o.autoread = true
+
 -- Decrease update time
 vim.o.updatetime = 250
 

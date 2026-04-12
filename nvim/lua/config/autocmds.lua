@@ -23,6 +23,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
+-- Auto reload files when modified externally (e.g. by Claude Code)
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+    group = augroup("checktime"),
+    callback = function()
+        if vim.o.buftype ~= "nofile" then
+            vim.cmd("checktime")
+        end
+    end,
+})
+
 -- Close some filetypes with <q>
 -- https://github.com/LazyVim/LazyVim/blob/ec5981dfb1222c3bf246d9bcaa713d5cfa486fbd/lua/lazyvim/config/autocmds.lua#L35
 vim.api.nvim_create_autocmd("FileType", {
