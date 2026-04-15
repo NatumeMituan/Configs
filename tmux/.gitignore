@@ -1,4 +1,4 @@
 *
 !.gitignore
-!.tmux.conf
-!.tmux.conf.vte
+!tmux.conf
+!tmux.conf.vte
