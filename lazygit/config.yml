@@ -6,26 +6,33 @@ git:
 gui:
   language: en
   nerdFontsVersion: "3"
-  # https://github.com/catppuccin/lazygit/blob/main/themes/macchiato/peach.yml
+  # https://github.com/catppuccin/lazygit/blob/main/themes/latte/peach.yml
   theme:
     activeBorderColor:
-      - '#f5a97f'
+      - '#fe640b'
       - bold
     inactiveBorderColor:
-      - '#a5adcb'
-    optionsTextColor:
-      - '#8aadf4'
-    selectedLineBgColor:
-      - '#363a4f'
-    cherryPickedCommitBgColor:
-      - '#494d64'
-    cherryPickedCommitFgColor:
-      - '#f5a97f'
-    unstagedChangesColor:
-      - '#ed8796'
-    defaultFgColor:
-      - '#cad3f5'
+      - '#6c6f85'
     searchingActiveBorderColor:
-      - '#eed49f'
+      - '#df8e1d'
+    optionsTextColor:
+      - '#1e66f5'
+    selectedLineBgColor:
+      - '#ccd0da'
+    inactiveViewSelectedLineBgColor:
+      - '#9ca0b0'
+    cherryPickedCommitFgColor:
+      - '#fe640b'
+    cherryPickedCommitBgColor:
+      - '#bcc0cc'
+    markedBaseCommitFgColor:
+      - '#1e66f5'
+    markedBaseCommitBgColor:
+      - '#df8e1d'
+    unstagedChangesColor:
+      - '#d20f39'
+    defaultFgColor:
+      - '#4c4f69'
+
   authorColors:
-    '*': '#b7bdf8'
+    '*': '#7287fd'

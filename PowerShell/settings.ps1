@@ -7,7 +7,7 @@ $ENV:SHELL = "pwsh"
 
 # bat
 # https://github.com/catppuccin/bat
-$ENV:BAT_THEME = "Catppuccin Macchiato"
+$ENV:BAT_THEME = "Catppuccin Latte"
 
 # fzf
 

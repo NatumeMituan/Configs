@@ -61,8 +61,8 @@ config = "bat cache --build"
 
 [[package.dependency]]
 type = "file"
-url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme"
-dest = "$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme"
+url = "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Latte.tmTheme"
+dest = "$(bat --config-dir)/themes/Catppuccin Latte.tmTheme"
 
 [[package]]
 # https://github.com/eza-community/eza
@@ -80,9 +80,16 @@ name = "delta"
 config = [
     "git config --global core.pager delta",
     "git config --global interactive.diffFilter 'delta --color-only'",
+    "git config --global include.path ~/.config/delta/themes/catppuccin.gitconfig",
     "git config --global delta.navigate true",
+    "git config --global delta.features catppuccin-latte",
     "git config --global merge.conflictStyle zdiff3",
 ]
+
+[[package.dependency]]
+type = "file"
+url = "https://github.com/catppuccin/delta/raw/main/catppuccin.gitconfig"
+dest = "~/.config/delta/themes/catppuccin.gitconfig"
 
 [[package]]
 # https://github.com/sharkdp/fd

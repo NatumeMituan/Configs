@@ -19,7 +19,7 @@ setenv LESS '-sRiM -Dd+b$Du+y$ --incsearch --use-color'
 fish_add_path "$HOME/.local/bin"
 
 if type -q bat
-    setenv BAT_THEME 'Catppuccin Macchiato'
+    setenv BAT_THEME 'Catppuccin Latte'
     abbr -a b 'bat'
 end
 
