@@ -52,7 +52,7 @@
                 "KC_BSPACE"
             ],
             [
-                "KC_LSHIFT",
+                "LSFT_T(KC_CAPSLOCK)",
                 "USER02",
                 "KC_Z",
                 "KC_X",
@@ -64,7 +64,7 @@
                 "KC_COMMA",
                 "KC_DOT",
                 "KC_SLASH",
-                "KC_RSHIFT",
+                "KC_BSPACE",
                 "KC_CAPSLOCK"
             ],
             [
@@ -185,8 +185,8 @@
             ],
             [
                 "KC_TRNS",
-                "KC_TRNS",
-                "KC_TRNS",
+                "KC_BTN4",
+                "KC_BTN5",
                 "KC_END",
                 "KC_TRNS",
                 "KC_TRNS",
