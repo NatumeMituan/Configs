@@ -1,0 +1,9 @@
+FROM fedora:latest
+RUN dnf copr enable -y dejan/lazygit && \
+    dnf install -y git lazygit fd-find curl ripgrep tree-sitter-cli neovim gcc && \
+    dnf clean all
+RUN git clone --depth 1 https://github.com/AstroNvim/template /root/.config/nvim
+RUN nvim --headless "+Lazy! sync" +qa
+RUN nvim --headless -c "TSUpdate" -c "sleep 60" -c "qa"
+WORKDIR /root
+ENTRYPOINT ["nvim"]
