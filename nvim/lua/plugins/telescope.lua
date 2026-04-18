@@ -95,13 +95,7 @@ return {
                         ['q'] = ta.close,
                     }
                 },
-                layout_config = {
-                    horizontal = {
-                        preview_cutoff = 1,
-                        width = 0.95,
-                        preview_width = 0.6
-                    }
-                },
+                layout_strategy = 'vertical',
             }
         }
     end,
