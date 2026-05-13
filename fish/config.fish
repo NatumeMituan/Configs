@@ -24,16 +24,15 @@ if type -q bat
 end
 
 # https://github.com/catppuccin/fzf?tab=readme-ov-file#usage
-set -l fzf_theme_colors '--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
---color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
---color=selected-bg:#494d64
---color=border:#363a4f,label:#cad3f5'
+setenv FZF_DEFAULT_OPTS "\
+--color=bg+:#CCD0DA,bg:#EFF1F5,spinner:#DC8A78,hl:#D20F39 \
+--color=fg:#4C4F69,header:#D20F39,info:#8839EF,pointer:#DC8A78 \
+--color=marker:#7287FD,fg+:#4C4F69,prompt:#8839EF,hl+:#D20F39 \
+--color=selected-bg:#BCC0CC \
+--color=border:#9CA0B0,label:#4C4F69"
 
 # fzf: https://github.com/junegunn/fzf
 if type -q fzf
-    setenv FZF_DEFAULT_OPTS "$fzf_theme_colors"
-
     # https://github.com/junegunn/fzf?tab=readme-ov-file#key-bindings-for-command-line
     # - preview with no decoration but number, and color
     # - <C-/> to cycle through how preview windows is displayed
@@ -125,7 +124,7 @@ if type -q zoxide
     setenv _ZO_FZF_OPTS "
       --walker-skip .git,node_modules,target
       --preview 'eza --tree --all --level=2 --color=always --icons {2}'
-      $fzf_theme_colors"
+      $FZF_DEFAULT_OPTS"
 end
 
 
